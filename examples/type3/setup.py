@@ -28,7 +28,7 @@ if sys.platform == 'win32':
 
     from distutils.msvc9compiler import MSVCCompiler
     setattr(MSVCCompiler, 'library_dir_option',
-            types.MethodType(_lib_dir_option, None, MSVCCompiler))
+            types.MethodType(_lib_dir_option, 2, MSVCCompiler))
 
     sdkdir = os.environ.get('WindowsSdkDir')
     if sdkdir:
@@ -69,7 +69,7 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          #'package_dir':{'': 'oottadao/examples/bar3simulation'},
          'packages':find_packages(), #['oottadao','oottadao.examples'],
          'package_data': {'oottadao.examples.bar3simulation': ['*.csv']},
-         'include_package_data': True,
+         'include_package_data': False,
          'test_suite':'nose.collector',
          'zip_safe': False,
          'install_requires':[
