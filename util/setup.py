@@ -27,7 +27,7 @@ setup(name='oottadao.util',
       namespace_packages=["oottadao"],
       packages=find_packages('src'),
       package_dir={'': 'src'},
-      include_package_data=True,
+      include_package_data=False,
       package_data={
           'oottadao.util.test': ['src/doubler.py']
       },
