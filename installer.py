@@ -44,6 +44,7 @@ def install(dist):
         cmd.append(arg)
 
     subprocess.call(cmd)
+    check.install()
 
 
 if __name__ == "__main__":
