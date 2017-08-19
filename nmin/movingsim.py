@@ -49,7 +49,7 @@ class SimAcceleration(Driver):
     
     Simulation Inputs
     end_speed: float
-        Ending speed for the simulation (default 60 mph)
+        Ending speed for the simulation (default 65 mph)
     
     timestep: float
         Simulation time step (default .01)
@@ -166,7 +166,7 @@ class SimEconomy(Driver):
         Name of the file that contains profile (csv format)
         
     end_speed: float
-        Ending speed for the simulation (default 60 mph)
+        Ending speed for the simulation (default 65 mph)
     
     timestep: float
         Simulation time step (default .01)
@@ -364,12 +364,7 @@ class SimEconomy(Driver):
                 self.raise_exception("Transmission gearing cannot " \
                 "achieve acceleration and speed required by EPA " \
                 "test.", RuntimeError)
-            
-        elif underspeed:
-            gear -= 1
-            
-            # Note, no check needed for low gearing -- we allow underspeed 
-            # while in first gear.
+           
                 
         else:
             return gear
