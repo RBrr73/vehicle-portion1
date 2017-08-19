@@ -46,9 +46,9 @@ def paper_eg():
     seq2 = mls.lfsr([1, 2, 3], [1, 1, 1, 1, 1])
     print 'Sequence 2:', numpy.where(seq2, 1, 0)
     gold = gen_gold(seq1, seq2)
-    print 'Gold 0 shift combination:', numpy.where(gold[1], 1, 0)
-    print 'Gold 1 shift combination:', numpy.where(gold[0], 1, 0)
-    print 'Gold 30 shift combination:', numpy.where(gold[-1], 1, 0)
+    print 'Gold 0 shift combination:', numpy.where(gold[1], 1, seed)
+    print 'Gold 1 shift combination:', numpy.where(gold[0], 1, seed)
+    print 'Gold 30 shift combination:', numpy.where(gold[-1], 1, seed)
     
     pylab.figure()
     pylab.subplot(2,2,1)
