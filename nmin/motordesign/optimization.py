@@ -48,6 +48,8 @@ class EngineOptimization(Assembly):
         # CONMIN Design Variables 
         self.driver.add_parameter('vehicle.spark_angle', -50., 10.)
         self.driver.add_parameter('vehicle.bore', 65., 100.)
+        self.driver.add_parameter('vehicle.atrest', 3., 7.)
+        self.driver.add_parameter('vehicle.resistance', 0, 16.)
         
         # Acceleration Sim setup
         self.sim_acc.add_parameter('vehicle.velocity', name='velocity',
