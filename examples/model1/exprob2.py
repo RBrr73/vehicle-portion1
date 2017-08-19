@@ -114,6 +114,38 @@ if __name__ == "__main__":
     
     actual = sim_k.mm_checker.case_outputs.model.f_x
     check  = sim_k.mm_checker.case_inputs.meta_model.x   
+    def main(nbits):
+    """Main Program"""
+    print nbits
+    if nbits != None:
+        g = gold(nbits)
+        #plotting
+        pylab.figure()
+        pylab.subplot(2,2,1)
+        pylab.title('Autocorrelation g[0]')
+        g0 = numpy.where(g[0], 1.0, -1.0)
+        pylab.plot((numpy.roll(filter.ccorr(g0, g0).real, len(g0)/2-1)))
+        pylab.xlim(0, len(g0))
+        pylab.subplot(2,2,2)
+        pylab.title('Autocorrelation g[-1]')
+        gm1 = numpy.where(g[-1], 1.0, -1.0)
+        pylab.plot((numpy.roll(filter.ccorr(gm1, gm1).real, len(gm1)/2-1)))
+        pylab.xlim(0, len(gm1))
+        pylab.subplot(2,2,3)
+        pylab.title('Crosscorrelation g[0] g[1]')
+        g1 = numpy.where(g[1], 1.0, -1.0)
+        pylab.plot((numpy.roll(filter.ccorr(g0, g1).real, len(g0)/2-1)))
+        pylab.xlim(0, len(g0))
+        pylab.subplot(2,2,4)
+        pylab.title('Crosscorrelation g[0] g[-1]')
+        pylab.plot((numpy.roll(filter.ccorr(g0, gm1).real, len(g0)/2-1)))
+        pylab.xlim(0, len(g0))
+        pylab.show()
+    else:
+        print 'Paper Example:'
+        paper_eg()
+        print 'Web Example:'
+        web_eg()
         
     import pylab as plt
     
