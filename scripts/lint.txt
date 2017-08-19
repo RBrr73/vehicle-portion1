@@ -85,6 +85,8 @@ def process(python, pylint, dirpath, filename, update):
     # Check for directory-specific configuration file.
     if os.path.exists('pylint.rc'):
         args += ' --rcfile=pylint.rc'
+        args += ' sys.stderr'
+        args += ' filename'
     args += ' %s' % filename
 
     # Run pylint.
