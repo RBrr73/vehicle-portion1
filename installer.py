@@ -23,10 +23,10 @@ def check_dist():
     #Looking for either 'Anaconda' or 'Continuum Analytics' for proof of Anaconda.
     if "Analytics" in version or "Anaconda" in version:
         dist = 'Anaconda'
-        print 'Anaconda detected. Running conda_build.py with args supplied.'
+        print 'Anaconda detected. Running conda_build.py.'
     else:
         dist = 'Virtualenv'
-        print 'Regular Python detected. Running go-oottadao file with args supplied.'
+        print 'Regular Python detected. Running go-oottadao file.'
 
     return dist
 
