@@ -30,7 +30,7 @@ class EngineOptimization(Assembly):
         self.add('sim_EPA_highway', SimEconomy())
         
         # add Sims to optimizer workflow
-        self.driver.workflow.add(['sim_acc', 'sim_EPA_city', 'sim_EPA_highway'])
+        self.driver.workflow.add(['sim_acc', 'sim_EPA_city', 'sim_EPA_highway', 'sim_total_dist'])
         
         # Add vehicle to sim workflows.
         self.sim_acc.workflow.add('vehicle')
@@ -99,6 +99,7 @@ if __name__ == "__main__": # pragma: no cover
         print 'Engine: Spark Angle = ', opt_problem.vehicle.spark_angle
         print '---------------------------------'
         print '0-60 Accel Time = ', opt_problem.sim_acc.accel_time
+        print 'Total Distance = ', opt_problem.sim_total_dist
         print 'EPA City MPG = ', opt_problem.sim_EPA_city.fuel_economy
         print 'EPA Highway MPG = ', opt_problem.sim_EPA_highway.fuel_economy
         print '\n'
