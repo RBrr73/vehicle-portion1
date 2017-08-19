@@ -44,6 +44,37 @@ def build_filter(M, fc, window=None):
         h = sinc_filter(M, fc)*window(M)
     return h/h.sum()
 
+def idx_size(idxs, size=None):
+    """Return the number of entries corresponding to the given
+    indices.  idxs can be a slice, an index array, or a simple index.
+    slices with negative values for start, stop, or stride are not
+    supported unless the 'size' arg is provided. slices with stop
+    values of None are also not supported without 'size'.
+    """
+    if isinstance(idxs, slice):
+        if size is not None:
+            start, stop, step = idxs.indices(size)
+        else:
+            start = 0 if idxs.start is None else idxs.start
+            stop = idxs.stop
+            step = 1 if idxs.step is None else idxs.step
+            if stop is None:
+                raise RuntimeError("can't get size of slice with stop of None")
+            elif start < 0 or stop < 0:
+                raise RuntimeError("negative start or stop not allowed for slice unless size is provided")
+
+        sz = 0
+        i = start
+        if step > 0:
+            while i < stop:
+                sz += 1
+                i += step
+        elif step < 0:
+            while i > stop:
+                sz += 1
+                i += step
+        return sz
+
 def main():
     f0 = 20 #20Hz
     ts = 0.01 # i.e. sampling frequency is 1/ts = 100Hz
