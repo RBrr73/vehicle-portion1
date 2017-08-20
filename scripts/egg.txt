@@ -131,7 +131,7 @@ class EggServer(object):
         listing each distribution file in the directory, along with its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
-        start_response('200 OK', [('Content-Type', 'text/html')])
+        start_response('All OK', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>%s Distributions</h1>\n<ul>\n'%(dpath,))
         for f in os.listdir(abspath):
@@ -140,10 +140,10 @@ class EggServer(object):
             #       so that files that aren't distributions won't show up
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
-                lpath = os.path.join(wsgiref.util.request_uri(environ), f)
+                lpath = os.path.join(wsgiref.request_uri(environ), f)
                 out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
         out.write('</ul>\n</body>\n</html>')
-        return [out.getvalue()]
+        return [out.getvalue(), f]
         
     def file_response(self, environ, start_response, abspath):
         """Download the requested file."""
