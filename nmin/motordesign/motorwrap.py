@@ -38,7 +38,7 @@ class Engine(Component):
     #Hu = 44000.0            # Heating Value for gasoline (44000 kJ/kg)
     #Tw = 400.0              # Tw (Combustion Wall Temperature 400 degK)
     #AFR = 14.6              # Air Fuel Ratio for gasoline
-    #P_exth = 152            # Exhaust gas pressure
+    #P_exth = 152            # Exhaust gas pressure (adjust for fuel)
     #P_amb = 101.325         # Ambient Pressure (kPa)
     #T_amb = 298             # Ambient Temperature (deg K)
     #air_density = 1.2       # Air Density (1.2 kg/m**3)
