@@ -157,7 +157,7 @@ class EggServer(object):
                          wsgiref.util.request_uri(environ))
                      
         pth = environ['PATH_INFO']
-        abspath = os.path.join(self.topdir, pth.strip('/'))
+        abspath = os.path.join(self.topdir, pth.strip('/'), newlink)
         
         if pth == '/':
             return self.top_dir_response(environ, start_response)
