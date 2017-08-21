@@ -190,7 +190,7 @@ def check_eggdir(name):
     for d in dirs:
         for f in os.listdir(os.path.join(name, d)):
             if d != f[0:len(d)]:
-                raise RuntimeError('directory '+name+' does not have the correct format '+
+                raise RuntimeError('Directory '+name+' does not have the correct format. Please receheck format. '+
                                    d+' != '+f[0:len(d)])
                                        
 
