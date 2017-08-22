@@ -71,7 +71,7 @@ def paper_eg():
 
 def web_eg():
     """Example of producing Gold Codes from the net 
-    (http://paginas.fe.up.pt/~hmiranda/cm/Pseudo_Noise_Sequences.pdf)"""
+    (http://paginas.fe.up.pt/~hmiranda/cm/exorb/files/Pseudo_Noise_Sequences.pdf)"""
     seq1 = mls.lfsr([1],[1,0,0])
     print 'Sequence 1:', numpy.where(seq1, 1, 0)
     seq2 = mls.lfsr([2], [1,0,0])
