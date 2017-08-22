@@ -34,7 +34,7 @@ def install(dist):
     #call the appropriate installer with the python that ran this script.
     cmd = [sys.executable]
     if dist == "Anaconda":
-        cmd.append('oottadao.devtools/src/oottadao/devtools/conda_build3.py')
+        cmd.append('oottadao.devtools/src/oottadao/files/devtools/conda_build3.py')
         cmd.append('dev')
     elif dist == "Virtualenv":
         cmd.append('go-oottadao-dev.py')
