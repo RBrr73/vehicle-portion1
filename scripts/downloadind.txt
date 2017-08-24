@@ -1,6 +1,6 @@
 !/usr/bin/env python
 """
-make the index page for all ootta downloads, per version.
+make the index page for all ootta downloads, per version - check version first.
 """
 import sys
 import os
@@ -23,7 +23,7 @@ def _keyfunct(val):
 def list_dirs(startdir):
     results = os.listdir(startdir)
     dir_results = []
-    excludes = ["misc", "dev_docs", "user_guides"]
+    excludes = ["misc", "dev_docs", "user_guides", "readmes", html]
     for name in results:
         if os.path.isdir(os.path.join(startdir, name)) and  (name not in excludes):
             dir_results.append(name)
