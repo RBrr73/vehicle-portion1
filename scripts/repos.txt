@@ -331,6 +331,11 @@ def remove_lockfile(path):
     except OSError, exc:
         print 'Cannot remove lockfile:', exc
         sys.exit(1)
+    else:
+        if sys.platform == 'win32':
+            return os.environ['USERNAME']
+        else:
+            return pwd.getpwuid(os.getuid()).pw_name
 
 
 def get_username(uid=None):
