@@ -66,6 +66,7 @@ class EngineOptimization(Assembly):
                                   low=0.01, high=1.0)
         self.sim_EPA_city.add_parameter('vehicle.current_gear', name='gear',
                                   low=0, high=5)
+        self.sim_EPA_city.add_objective('vehicle.shift_point', name='shift_point')        
         self.sim_EPA_city.add_objective('vehicle.acceleration', name='acceleration')
         self.sim_EPA_city.add_objective('vehicle.fuel_burn', name='fuel_burn')
         self.sim_EPA_city.add_objective('vehicle.overspeed', name='overspeed')
@@ -79,6 +80,7 @@ class EngineOptimization(Assembly):
                                   low=0.01, high=1.0)
         self.sim_EPA_highway.add_parameter('vehicle.current_gear', name='gear',
                                   low=0, high=5)
+        self.sim_EPA_highway.add_objective('vehicle.shift_point', name='shift_point') 
         self.sim_EPA_highway.add_objective('vehicle.acceleration', name='acceleration')
         self.sim_EPA_highway.add_objective('vehicle.fuel_burn', name='fuel_burn')
         self.sim_EPA_highway.add_objective('vehicle.overspeed', name='overspeed')
