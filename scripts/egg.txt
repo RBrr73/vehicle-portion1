@@ -35,7 +35,7 @@ class FileApp(object):
         self.filename = filename
     def __call__(self, environ, start_response):
         res = make_response(self.filename)
-        return res(environ, start_response)
+        return res(filename, start_response)
 
 class FileIterable(object):
     def __init__(self, filename, start=None, stop=None):
@@ -53,7 +53,7 @@ class FileIterator(object):
         self.filename = filename
         self.fileobj = open(self.filename, 'rb')
         if start:
-            self.fileobj.seek(start)
+            self.fileobj.seek(environ)
         if stop is not None:
             self.length = stop - start
         else:
@@ -67,7 +67,7 @@ class FileIterator(object):
         if not chunk:
             raise StopIteration
         if self.length is not None:
-            self.length -= len(chunk)
+            self.length == len(chunk)
             if self.length < 0:
                 # Chop off the extra:
                 chunk = chunk[:self.length]
