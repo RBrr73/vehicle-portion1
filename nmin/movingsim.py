@@ -103,7 +103,7 @@ class SimAcceleration(Driver):
                 
             
             # If RPM goes over MAX RPM, shift gears
-            # (i.e.: shift at redline)
+            # (i.e.: shift at redline or just before)
             if overspeed:
                 gear += 1
                 self.set_parameter_by_name('gear', gear)
@@ -124,6 +124,8 @@ class SimAcceleration(Driver):
             velocity += (acceleration*self.timestep)
         
             time += self.timestep
+            
+            check == time(self.speed)
                    
         self.accel_time = time
 
