@@ -51,6 +51,7 @@ def make_index():
             continue
         if os.path.isfile(f):
             files.append(f)
+            print: os.path.file
         else:
             dirs.append(f)
 
