@@ -77,6 +77,10 @@ Cf2py intent(in,out) MS1
       write(*,*) 'G2'
       write(*,'(6f10.3)') (g2(i),i=1,n2)
       write(*,*) 'B'
+      write(*,'(6f10.3)') (g3(i),i=1,n2)
+      write(*,*) 'NH'      
+      write(*,'(6f10.3)') (g4(i),i=1,n2)
+      write(*,*) '4F'      
       do i = 1,n3
         write(*,'(6f10.3)') (b(i,j),j=1,n3)
         write(*,*)
@@ -235,6 +239,7 @@ C     ------------------------------------------------------------------
       VUB(I)=VUB(I)*SI
 140   CONTINUE
 150   CONTINUE
+155   CONTINUE
 C     ------------------------------------------------------------------
 C     ***** CALCULATE INITIAL FUNCTION AND CONSTRAINT VALUES  *****
 C     ------------------------------------------------------------------
