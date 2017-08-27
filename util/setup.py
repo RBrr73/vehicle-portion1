@@ -25,8 +25,7 @@ setup(name='oottadao.util',
       url='http://oottadao.org',
       license='Apache License, Version 2.0',
       namespace_packages=["oottadao"],
-      packages=find_packages('src'),
-      package_dir={"oottadao", '': 'src'},
+
       include_package_data=False,
       package_data={
           'oottadao.util.test': ['src/doubler.py']
@@ -45,6 +44,7 @@ setup(name='oottadao.util',
       xyplot=oottadao.util.casedb:cmdlineXYplot
       plotgraph=oottadao.util.graphplot:main
       dotgraph=oottadao.util.dotgraph:main
+      bargraph=oottadao.util.bargraph:main
       add_reqs=oottadao.util.addreqs:add_reqs
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
       pottodump=pottodao.util.dep:main
