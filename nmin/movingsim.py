@@ -70,6 +70,12 @@ class SimAcceleration(Driver):
     accel_time = Float(0.0, iotype='out', units='s',
                        desc = 'Acceleration time')
     
+    end_speed: float
+        Ending speed for the simulation (default 60 mph)
+    
+    timestep: float
+        Simulation time step (default .01)    
+    
     def execute(self):
         """ Simulate the vehicle model at full throttle."""
         
