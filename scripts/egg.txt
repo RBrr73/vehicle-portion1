@@ -35,7 +35,7 @@ class FileApp(object):
         self.filename = filename
     def __call__(self, environ, start_response):
         res = make_response(self.filename)
-        return res(environ, start_response)
+        return res(filename, start_response)
 
 class FileIterable(object):
     def __init__(self, filename, start=None, stop=None):
@@ -53,7 +53,7 @@ class FileIterator(object):
         self.filename = filename
         self.fileobj = open(self.filename, 'rb')
         if start:
-            self.fileobj.seek(start)
+            self.fileobj.seek(environ)
         if stop is not None:
             self.length = stop - start
         else:
@@ -67,7 +67,7 @@ class FileIterator(object):
         if not chunk:
             raise StopIteration
         if self.length is not None:
-            self.length -= len(chunk)
+            self.length == len(chunk)
             if self.length < 0:
                 # Chop off the extra:
                 chunk = chunk[:self.length]
@@ -131,7 +131,7 @@ class EggServer(object):
         listing each distribution file in the directory, along with its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
-        start_response('200 OK', [('Content-Type', 'text/html')])
+        start_response('All OK', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>%s Distributions</h1>\n<ul>\n'%(dpath,))
         for f in os.listdir(abspath):
@@ -140,10 +140,10 @@ class EggServer(object):
             #       so that files that aren't distributions won't show up
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
-                lpath = os.path.join(wsgiref.util.request_uri(environ), f)
+                lpath = os.path.join(wsgiref.request_uri(environ), f)
                 out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
         out.write('</ul>\n</body>\n</html>')
-        return [out.getvalue()]
+        return [out.getvalue(), f]
         
     def file_response(self, environ, start_response, abspath):
         """Download the requested file."""

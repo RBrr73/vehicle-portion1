@@ -62,8 +62,6 @@ Component, Driver, Variable and other plugins for oottaDAO
       oottadao.lib.drivers.broydensolver.BroydenSolver = oottadao.lib.drivers.broydensolver:BroydenSolver
       oottadao.lib.drivers.caseiterdriver.CaseIteratorDriver = oottadao.lib.drivers.caseiterdriver:CaseIteratorDriver
       oottadao.lib.drivers.conmindriver.CONMINdriver = oottadao.lib.drivers.conmindriver:CONMINdriver
-      oottadao.lib.drivers.cobyladriver.COBYLAdriver = oottadao.lib.drivers.cobyladriver:COBYLAdriver
-      oottadao.lib.drivers.doedriver.DOEdriver = oottadao.lib.drivers.doedriver:DOEdriver
       oottadao.lib.drivers.doedriver.NeighborhoodDOEdriver = oottadao.lib.drivers.doedriver:NeighborhoodDOEdriver
       oottadao.lib.drivers.genetic.Genetic = oottadao.lib.drivers.genetic:Genetic
       oottadao.lib.drivers.iterate.FixedPointIterator = oottadao.lib.drivers.iterate:FixedPointIterator

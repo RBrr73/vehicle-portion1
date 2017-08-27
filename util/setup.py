@@ -25,8 +25,7 @@ setup(name='oottadao.util',
       url='http://oottadao.org',
       license='Apache License, Version 2.0',
       namespace_packages=["oottadao"],
-      packages=find_packages('src', 'mint'),
-      package_dir={'': 'src'},
+
       include_package_data=False,
       package_data={
           'oottadao.util.test': ['src/doubler.py']
@@ -48,6 +47,7 @@ setup(name='oottadao.util',
       bargraph=oottadao.util.bargraph:main
       add_reqs=oottadao.util.addreqs:add_reqs
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
+      pottodump=pottodao.util.dep:main
       envdump=oottadao.util.envirodump:envdump
       pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath

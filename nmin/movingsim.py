@@ -49,7 +49,7 @@ class SimAcceleration(Driver):
     
     Simulation Inputs
     end_speed: float
-        Ending speed for the simulation (default 60 mph)
+        Ending speed for the simulation (default 65 mph)
     
     timestep: float
         Simulation time step (default .01)
@@ -63,12 +63,18 @@ class SimAcceleration(Driver):
     implements(IHasParameters, IHasObjectives)
     
     end_speed = Float(60.0, iotype='in', units='mi/h',
-                      desc='Simulation final speed')
+                      desc='Simulation interim speed')
     timestep = Float(0.1, iotype='in', units='s', 
-                     desc='Simulation time step size')
+                     desc='Simulation interim time step size')
     
     accel_time = Float(0.0, iotype='out', units='s',
                        desc = 'Acceleration time')
+    
+    end_speed: float
+        Ending speed for the simulation (default 60 mph)
+    
+    timestep: float
+        Simulation time step (default .01)    
     
     def execute(self):
         """ Simulate the vehicle model at full throttle."""
@@ -103,7 +109,7 @@ class SimAcceleration(Driver):
                 
             
             # If RPM goes over MAX RPM, shift gears
-            # (i.e.: shift at redline)
+            # (i.e.: shift at redline or just before)
             if overspeed:
                 gear += 1
                 self.set_parameter_by_name('gear', gear)
@@ -124,6 +130,8 @@ class SimAcceleration(Driver):
             velocity += (acceleration*self.timestep)
         
             time += self.timestep
+            
+            check == time(self.speed)
                    
         self.accel_time = time
 
@@ -166,7 +174,7 @@ class SimEconomy(Driver):
         Name of the file that contains profile (csv format)
         
     end_speed: float
-        Ending speed for the simulation (default 60 mph)
+        Ending speed for the simulation (default 65 mph)
     
     timestep: float
         Simulation time step (default .01)
@@ -364,12 +372,7 @@ class SimEconomy(Driver):
                 self.raise_exception("Transmission gearing cannot " \
                 "achieve acceleration and speed required by EPA " \
                 "test.", RuntimeError)
-            
-        elif underspeed:
-            gear -= 1
-            
-            # Note, no check needed for low gearing -- we allow underspeed 
-            # while in first gear.
+           
                 
         else:
             return gear

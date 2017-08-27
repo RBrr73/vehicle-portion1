@@ -41,12 +41,14 @@ class Pareto_Min_Dist(Component):
             for case in single_case_list:
                 for objective in case.outputs:
                     for crit in self.criteria:
-                        if crit in objective[0]:
+                        for each in self.collection:
+                            if crit in objective[0]:
                             #TODO: criteria needs at least two things matching
                             #objective names in CaseIterator outputs, error otherwise
                             c.append(objective[2])
                 if c != [] :
                     y_star_other.append(c)
+                    c += c
                 c = []
        
         return y_star_other
