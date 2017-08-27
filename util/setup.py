@@ -8,14 +8,14 @@ here = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, os.path.normpath(os.path.join(here,
                                                  'src',
                                                  'oottadao',
-                                                 'util')))
+                                                 'util routines')))
 
 import releaseinfo
 version = releaseinfo.__version__
 
 setup(name='oottadao.util',
       version=version,
-      description="various utility routines",
+      description="various interim utility routines",
       long_description="""\
 """,
       classifiers=[],
