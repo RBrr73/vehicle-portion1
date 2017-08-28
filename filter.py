@@ -57,6 +57,8 @@ def main():
     fc = 0.25 #i.e. normalised cutoff frequency 1/4 of sampling rate i.e. 25Hz
     ham_lp = build_filter(M, fc, window=hamming)
     black_lp = build_filter(M, fc, window=blackman)
+    near_lp = build_filter(M, fc, window=triple)
+    tri_lp = build_filter(M, fc, window)
     rect_lp = build_filter(M, fc)
 
     #filter the signals
