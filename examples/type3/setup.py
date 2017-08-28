@@ -58,7 +58,7 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
             'Natural Language :: English',
             'Operating System :: OS Independent',
             'Programming Language :: Python :: 2.7',
-            'Topic :: Scientific/Engineering',
+            'Topic : Scientific/Engineering',
              ],
          'keywords':'optimization multidisciplinary multi-disciplinary analysis',
          'author':'',
@@ -75,6 +75,8 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          'install_requires':[
              'setuptools',
              'oottadao.lib',
+             'nose.collector',
+             'oottadao.examples'
              ],
          'entry_points':"""
          # -*- Entry points: -*-
