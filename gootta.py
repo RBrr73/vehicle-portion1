@@ -71,7 +71,7 @@ REQUIRED_MODULES = ['os', 'posix', 'posixpath', 'nt', 'ntpath', 'genericpath',
                     'fnmatch', 'locale', 'encodings', 'codecs',
                     'stat', 'UserDict', 'readline', 'copy_reg', 'types',
                     're', 'sre', 'sre_parse', 'sre_constants', 'sre_compile',
-                    'zlib']
+                    'zlib', 'test_suite']
 
 REQUIRED_FILES = ['lib-dynload', 'config']
 
@@ -284,6 +284,8 @@ class Logger(object):
     def notify(self, msg, *args, **kw):
         self.log(self.NOTIFY, msg, *args, **kw)
     def warn(self, msg, *args, **kw):
+        self.log(self.WARN, msg, *args, **kw)
+    def empty(self, msg, *args, **kw):
         self.log(self.WARN, msg, *args, **kw)
     def error(self, msg, *args, **kw):
         self.log(self.ERROR, msg, *args, **kw)
