@@ -1,5 +1,6 @@
 try:
     import pkg_resources
+    import test_suite
     pkg_resources.declare_namespace(__name__)
 except ImportError:
     import pkgutil
