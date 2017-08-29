@@ -148,6 +148,12 @@ html_static_path = ['_static']
 # If false, no index is generated.
 #html_use_index = True
 
+# If false, no format tables are generated.
+#html_format_tables = True
+
+# If false, no viewcount tables are generated.
+#html_viewcount_tables = True
+
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
 
