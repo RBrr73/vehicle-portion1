@@ -5,6 +5,12 @@ import sys
 from numpy.distutils.core import setup
 from numpy.distutils.misc_util import Configuration
 
+from traits.trait_handlers import TraitListObject
+
+from ootta.util.typegroups import real_types, int_types
+
+from numpy import ndarray, ravel_multi_index, prod, arange, array, zeros
+
 include_dirs = []
 library_dirs = []
 if sys.platform == 'win32':
@@ -36,8 +42,6 @@ kwds = {'install_requires':['numpy'],
         'version': '1.0.2',
         'zip_safe': False,
         'license': 'public domain',
-   # NOTE: we use 'url' here, but it really translates to 'home-page'
-   # in the metadata. Go figure.
         'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
         'package_data': {'oottadao.main': ['*.html']},
        }
