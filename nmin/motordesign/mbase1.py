@@ -36,7 +36,11 @@ else{
    digitalWrite(analogOutPin2,HIGH);
  }
  
-
+ else{
+   digitalWrite(analogOutPin3,LOW);
+   analogWrite(analogOutPin1,0);
+   digitalWrite(analogOutPin2,LOW);
+ }
  
  Serial.print(val);
  Serial.print("\t");
