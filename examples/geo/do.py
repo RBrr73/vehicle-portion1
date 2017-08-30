@@ -23,6 +23,7 @@ class Analysis(Assembly):
         self.driver.add_parameter('paraboloid.x', low=-50, high=50)
         self.driver.add_parameter('paraboloid.y', low=-50, high=50)
         #tell the DOEdriver to also record any other variables you want to know for each case
+        self.driver.gear()
         self.driver.add_response('paraboloid.f_xy')
 
         self.recorders = [JSONCaseRecorder('doe.json'), BSONCaseRecorder('doe.bson')]
