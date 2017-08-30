@@ -63,3 +63,12 @@ kwds = {'install_requires':['numpy'],
         'license': 'public domain',
         'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
         'package_data': {'oottadao.main': ['*.html']},
+        
+        def install(dist):
+    cmd = [sys.executable]
+    if dist == "ready":
+        cmd.append('oottadao.devtools/src/oottadao/files/devtools/conda_build3.py')
+        cmd.append('dev')
+    elif dist == "Virtualenv":
+        cmd.append('go-oottadao-dev.py')
+        
