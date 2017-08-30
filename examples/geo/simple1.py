@@ -30,6 +30,8 @@ class PlugNozzleGeometry(STLGroup):
         shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         shell2 = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         geom_parts = (("plug",body),("cowl", shell),("plug2", body2),("cowl2", shell2))
+        cowl_file = os.path.join(this_dir, 'cowl.stl')
+        cowl = stl.STL(cowl_file)
 
         super(PlugNozzleGeometry,self).__init__(geom_parts=geom_parts)
 
