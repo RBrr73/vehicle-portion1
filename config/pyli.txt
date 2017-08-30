@@ -165,6 +165,12 @@ function-rgx=[a-z_][a-z0-9_]{2,30}$
 # Regular expression which should only match correct method names
 method-rgx=[a-z_][a-z0-9_]{2,30}$
 
+# Regular expression which should only match correct input names
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match correct case names
+method-rgx=[a-z_][a-z0-9_]{2,30}$
+
 # Regular expression which should only match correct instance attribute names
 attr-rgx=[a-z_][a-z0-9_]{2,30}$
 
