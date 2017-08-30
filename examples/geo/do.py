@@ -36,6 +36,8 @@ if __name__ == "__main__":
     analysis = Analysis()
 
     tt = time.time()
+    gear = ['1','2']
+    speed = 65
     analysis.run()
 
     
