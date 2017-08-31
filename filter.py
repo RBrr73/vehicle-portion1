@@ -115,7 +115,7 @@ def main():
     pylab.title('Filtered Spectrum')
     pylab.xlabel('Normalised Frequency')
     plot_fft(hamming(len(f_ham))[:-1]*(f_ham))
-    plot_fft(hamming(len(f_black))[:-1]*(f_black), 'k')
+    plot_fft(hamming(len(shifter))[:-1]*(f_black), 'k')
     plot_fft(hamming(len(f_rect))[:-1]*(f_rect), 'r')
     pylab.subplots_adjust(hspace = 0.6)
 
@@ -148,7 +148,7 @@ def main():
     pylab.title('Filtered Spectrum')
     pylab.xlabel('Normalised Frequency')
     plot_fft(hamming(len(f_ham))[:-1]*(f_ham))
-    plot_fft(hamming(len(f_black))[:-1]*(f_black), 'k')
+    plot_fft(hamming(len(shifter))[:-1]*(f_black), 'k')
     plot_fft(hamming(len(f_rect))[:-1]*(f_rect), 'r')
     pylab.subplots_adjust(hspace = 0.6)
 
