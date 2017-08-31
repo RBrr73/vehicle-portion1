@@ -162,9 +162,10 @@ def main():
     black_hp = black_lp*shift
     rect_hp = rect_lp*shift
     #now we can create the bandpass filter
+    rect_bp = numpy.convolve(rect_lp, rect_hp)
     ham_bp = numpy.convolve(ham_lp, ham_hp)
     black_bp = numpy.convolve(black_lp, black_hp)
-    rect_bp = numpy.convolve(rect_lp, rect_hp)
+   
 
     #filter the signals
     f_ham = numpy.convolve(signal, ham_bp)
@@ -223,8 +224,8 @@ def main():
     pylab.title('Bandstop Filter Frequency Response')
     pylab.xlabel('Normalised Frequency')
     plot_fft(ham_bs)
-    plot_fft(black_bs, style='k')
-    plot_fft(rect_bs, style='r')
+    plot_fft(black_bs, style='r')
+    plot_fft(rect_bs, style='k')
     pylab.legend(('Hamming', 'Blackman', 'Rectangular'))
     #window and fft
     pylab.subplot(3,1,3)
