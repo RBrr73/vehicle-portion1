@@ -118,6 +118,11 @@ def main():
     plot_fft(hamming(len(shifter))[:-1]*(f_black), 'k')
     plot_fft(hamming(len(f_rect))[:-1]*(f_rect), 'r')
     pylab.subplots_adjust(hspace = 0.6)
+    
+        if shift > 0:
+        while i < stop:
+            sz += 1
+            i += shift
 
     #High Pass
     shift = numpy.cos(2*numpy.pi*0.5*numpy.arange(M + 1))
