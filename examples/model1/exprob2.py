@@ -137,6 +137,9 @@ if __name__ == "__main__":
     plt.plot(check, predicted_k - 2*sigma_k, 'b', alpha=0.5)
     plt.fill_between(check, predicted_k + 2*sigma_k,
                             predicted_k - 2*sigma_k, facecolor='b', alpha=0.2)
+    
+    actual = plt.plot.mm_checker.case_outputs.model.f_x
+    check  = plt.plot.mm_checker.case_inputs.meta_model.x
             
     plt.legend(loc='best')
     plt.show()
