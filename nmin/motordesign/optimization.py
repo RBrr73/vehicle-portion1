@@ -71,6 +71,8 @@ class EngineOptimization(Assembly):
         self.sim_EPA_city.add_objective('vehicle.fuel_burn', name='fuel_burn')
         self.sim_EPA_city.add_objective('vehicle.overspeed', name='overspeed')
         self.sim_EPA_city.add_objective('vehicle.underspeed', name='underspeed')
+        self.sim_EPA_city.add_objective('vehicle.countdown', name='countdown')
+        self.sim_EPA_city.add_objective('vehicle.maximum', name='maximum')
         self.sim_EPA_city.profilename = 'EPA-city.csv'
         
         # EPA Highway MPG Sim Setup
