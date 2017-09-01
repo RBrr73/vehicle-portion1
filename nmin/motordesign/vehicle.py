@@ -91,6 +91,8 @@ class Vehicle(Assembly):
         self.create_passthrough('engine.throttle')
         self.create_passthrough('engine.power')
         self.create_passthrough('engine.torque')
+        self.create_passthrough('engine.exhaust')
+        self.create_passthrough('engine.cycles')
         self.create_passthrough('engine.fuel_burn')
         self.create_passthrough('engine.overspeed')
         self.create_passthrough('engine.underspeed')
