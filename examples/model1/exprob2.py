@@ -37,6 +37,9 @@ class CasesBuilder(Assembly):
         self.instance = model    
         self.cases = cases
         super(CasesBuilder, self).__init__()
+     
+    def build(self):
+        pass
     
     def configure(self):  
         self.add("model", self.instance)
