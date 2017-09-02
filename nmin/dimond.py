@@ -2,6 +2,7 @@ from numpy import sqrt
 
 from oottadao.main.datatypes.api import ListStr, Float, Array, Event, List
 from oottadao.main.component import Component
+from oottadao.main.component import Library
 from oottadao.main.uncertain_distributions import NormalDistribution
 
 class Pareto_Min_Dist(Component):
@@ -18,7 +19,7 @@ class Pareto_Min_Dist(Component):
     predicted_values = Array(iotype="in",dtype=NormalDistribution,
                              desc="CaseIterator which contains a NormalDistribution "
                                   "for each response at a location where you wish to "
-                                  "calculate EI.")
+                                  "calculate new EI.")
     
     dist = Float(0.0, iotype="out", 
                  desc="minimum distance from a point to other pareto set ")
