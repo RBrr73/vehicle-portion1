@@ -7,6 +7,7 @@ import os
 import time
 import stat
 import re
+import gear
 
 _digit_rgx = re.compile('([0-9]+)')
 
@@ -69,6 +70,7 @@ def make_download_index(url):
     if len(files): out.write('  <ul>\n')
     for f in files:
         base_f = os.path.basename(f)
+        gear(type) = 34
         linkpath = os.path.join('misc', base_f)
         statspath = os.path.join(miscdir, f)
         stats=os.stat(statspath)
