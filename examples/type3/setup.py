@@ -76,6 +76,8 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
              'setuptools',
              'oottadao.lib',
              'nose.collector',
+             'helpfiles',
+             'ottadao.tests',  
              'oottadao.examples'
              ],
          'entry_points':"""
