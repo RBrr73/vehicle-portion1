@@ -34,5 +34,6 @@ mag = abs(val2/2);
  Serial.println(val);
  Serial.println(mag);
   
-   delay(2);
+   delay(8);
+   rerun(2)
   }
