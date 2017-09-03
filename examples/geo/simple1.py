@@ -17,6 +17,7 @@ class PlugNozzleGeometry(STLGroup):
         plug = stl.STL(plug_file)
         cowl_file = os.path.join(this_dir, 'cowl.stl')
         cowl = stl.STL(cowl_file)
+        lift = Body(plug.copy(), 10.1)
 
         n_c = 10
         body = Body(plug,controls=n_c) #just makes n_C evenly spaced points
