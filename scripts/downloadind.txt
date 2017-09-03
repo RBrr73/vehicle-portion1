@@ -84,6 +84,8 @@ def make_download_index(url):
         #print "\n 1.  " + dir_date
         #print "\n 2.  " + dir_date1
         #print "\n 3.  " + dir_date2
+        #print time.localtime(stats[9])
+        #print base_f
         out.write('     <li><a href="%s">%s</a>&nbsp&nbsp&nbsp&nbsp %s(CST)\n'%(linkpath, base_f, dir_date))
     if len(dirs): out.write('  </ul>\n')
     #END MISC SECTION
