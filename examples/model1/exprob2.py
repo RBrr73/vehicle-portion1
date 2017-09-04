@@ -37,6 +37,9 @@ class CasesBuilder(Assembly):
         self.instance = model    
         self.cases = cases
         super(CasesBuilder, self).__init__()
+     
+    def build(self):
+        pass
     
     def configure(self):  
         self.add("model", self.instance)
@@ -112,8 +115,10 @@ if __name__ == "__main__":
     predicted_k = np.array([d.mu for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
     sigma_k = np.array([d.sigma for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
     
+    # due to the co-kriging
     actual = sim_k.mm_checker.case_outputs.model.f_x
-    check  = sim_k.mm_checker.case_inputs.meta_model.x   
+    check  = sim_k.mm_checker.case_inputs.meta_model.x
+   
         
     import pylab as plt
     
@@ -132,6 +137,9 @@ if __name__ == "__main__":
     plt.plot(check, predicted_k - 2*sigma_k, 'b', alpha=0.5)
     plt.fill_between(check, predicted_k + 2*sigma_k,
                             predicted_k - 2*sigma_k, facecolor='b', alpha=0.2)
+    
+    actual = plt.plot.mm_checker.case_outputs.model.f_x
+    check  = plt.plot.mm_checker.case_inputs.meta_model.x
             
     plt.legend(loc='best')
     plt.show()

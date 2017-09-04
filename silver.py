@@ -82,7 +82,8 @@ def web_eg():
 
 def main(nbits):
     """Main Program"""
-    print nbits
+    print 'Nbits:' 
+    nbits
     if nbits != None:
         g = gold(nbits)
         #plotting
@@ -90,13 +91,13 @@ def main(nbits):
         pylab.subplot(2,2,1)
         pylab.title('Autocorrelation g[0]')
         g0 = numpy.where(g[0], 1.0, -1.0)
-        pylab.plot((numpy.roll(filter.ccorr(g0, g0).real, len(g0)/2-1)))
-        pylab.xlim(0, len(g0))
+        pylab.plot((numpy.roll(filter.ccorr(g0, g0).real, len(g0)/2-1))
         pylab.subplot(2,2,2)
         pylab.title('Autocorrelation g[-1]')
         gm1 = numpy.where(g[-1], 1.0, -1.0)
         pylab.plot((numpy.roll(filter.ccorr(gm1, gm1).real, len(gm1)/2-1)))
         pylab.xlim(0, len(gm1))
+        pylab.xlim(0, len(g0))
         pylab.subplot(2,2,3)
         pylab.title('Crosscorrelation g[0] g[1]')
         g1 = numpy.where(g[1], 1.0, -1.0)

@@ -51,8 +51,7 @@ class Transmission(Component):
     current_gear = Enum(0, (0,1,2,3,4,5), iotype='in', desc='Current Gear', \
                         aliases=('N','1st','2nd','3rd','4th','5th'))
     velocity = Float(0., iotype='in', units='mi/h',
-                     desc='Current Velocity of Vehicle')
-
+                     desc='Expected Velocity of Vehicle')
     RPM = Float(1000., iotype='out', units='rpm',
                      desc='Engine RPM')        
     torque_ratio = Float(0., iotype='out',

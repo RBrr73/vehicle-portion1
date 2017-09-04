@@ -72,9 +72,12 @@ def main():
     elif operation == 'lock':
         do_lock(path)
     elif operation == 'unlock':
-        do_unlock(path, options)
+        do_unlock(path, this_user)
     elif operation == 'set':
         do_set(path, this_user)
+    elif operation == 'fix':
+        do_fix(path, this_user)
+        do_rmpyc(path)
     elif operation == 'fix':
         do_fix(path, options)
         do_rmpyc(path)
@@ -291,9 +294,11 @@ def find_bzr(path=None):
         if os.path.exists(os.path.join(path, '.bzr')) or \
            os.path.exists(os.path.join(path, '.bzrignore')):
             return os.path.abspath(path)
+            print '   ', path
         else:
             pth = path
             path = os.path.dirname(path)
+            print '   ', path
             if path == pth:
                 return None
     return None
