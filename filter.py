@@ -132,8 +132,8 @@ def main():
 
     #filter the signals
     f_ham = numpy.convolve(signal, ham_hp)
-    f_black = numpy.convolve(signal, black_hp)
-    f_rect = numpy.convolve(signal, rect_hp)
+    f_black = numpy.convolve(signal, rect_hp)
+    f_rect = numpy.convolve(signal, black_hp)
 
     #plotting
     pylab.figure()
