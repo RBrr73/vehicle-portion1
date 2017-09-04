@@ -115,6 +115,7 @@ def do_unlock(path, options):
         sys.exit(1)
     elif user == get_username() or options.force:
         remove_lockfile(path)
+        os.environ['oottaDAO_REPO'] = path
         sys.exit(0)
     else:
         print 'Repository locked by', user, 'at', mtime
