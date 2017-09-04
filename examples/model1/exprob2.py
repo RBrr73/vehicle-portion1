@@ -74,6 +74,7 @@ class Simulation(Assembly):
                                                 responses=('f_x', ), nfi=self.nfi)) 
         self.meta_model.default_surrogate = self.surrogate
         self.connect('hifi_cases.x'  , 'meta_model.params.x')
+        self.connect('hifi_cases.re_x'  , 'none')
         self.connect('hifi_cases.f_x', 'meta_model.responses.f_x')
         if self.nfi > 1:
             self.connect('lofi_cases.x'  , 'meta_model.params.x_fi2')
