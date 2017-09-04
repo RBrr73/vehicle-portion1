@@ -22,12 +22,12 @@ mag = abs(val2/2);
     mag = 255;
    } 
    if(val2<0){
-   analogWrite(analogOutPin2,0);
+   analogWrite(analogOutPin2,223);
    analogWrite(analogOutPin1,mag);
    analogWrite(analogOutPin3,255);
    }
    else{
-   analogWrite(analogOutPin3,0);
+   analogWrite(analogOutPin3,116);
    analogWrite(analogOutPin1,mag);
    analogWrite(analogOutPin2,255);
    }
