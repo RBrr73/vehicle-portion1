@@ -26,17 +26,21 @@ else{
 }
   
  if(val2<-20){
-   digitalWrite(analogOutPin2,LOW);
+   digitalWrite(analogOutPin2,MED);
    analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin3,HIGH);
  }
  else if(val2>20){
-   digitalWrite(analogOutPin3,LOW);
+   digitalWrite(analogOutPin3,MED);
    analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin2,HIGH);
  }
  
-
+ else{
+   digitalWrite(analogOutPin3,MED);
+   analogWrite(analogOutPin1,0);
+   digitalWrite(analogOutPin2,LOW);
+ }
  
  Serial.print(val);
  Serial.print("\t");
