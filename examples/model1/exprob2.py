@@ -15,6 +15,7 @@ class Model(Component):
     
     def execute(self):
         x = self.x
+        f_x = Float(0.0, iotype="out")
         self.f_x = ((6*x-2)**2)*np.sin((6*x-2)*2)
     
 
@@ -112,8 +113,8 @@ if __name__ == "__main__":
     sim_k = Simulation(surrogate, nfi=1) 
     sim_k.run()
 
-    predicted_k = np.array([d.mu for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
-    sigma_k = np.array([d.sigma for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
+    predicted_k = np.array([d.mu for d in sim_k.mm_checker.re.case_outputs.meta_model.f_x])
+    sigma_k = np.array([d.sigma for d in sim_k.mm_checker.re.case_outputs.meta_model.f_x])
     
     # due to the co-kriging
     actual = sim_k.mm_checker.case_outputs.model.f_x
