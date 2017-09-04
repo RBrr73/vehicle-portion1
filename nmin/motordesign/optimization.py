@@ -85,6 +85,8 @@ class EngineOptimization(Assembly):
         self.sim_EPA_highway.add_objective('vehicle.shift_point', name='shift_point') 
         self.sim_EPA_highway.add_objective('vehicle.acceleration', name='acceleration')
         self.sim_EPA_highway.add_objective('vehicle.fuel_burn', name='fuel_burn')
+        self.sim_EPA_highway.add_objective('vehicle.tire_wear', name='tire_wear')
+        self.sim_EPA_highway.add_objective('vehicle.cruise', name='cruise')
         self.sim_EPA_highway.add_objective('vehicle.overspeed', name='overspeed')
         self.sim_EPA_highway.add_objective('vehicle.underspeed', name='underspeed')
         self.sim_EPA_highway.profilename = 'EPA-highway.csv'
