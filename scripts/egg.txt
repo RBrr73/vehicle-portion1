@@ -114,7 +114,7 @@ class EggServer(object):
         """When the server gets a '/' request, return a page listing all of
         the dirs in the egg directory.
         """
-        start_response('200 OK', [('Content-Type', 'text/html')])
+        start_response('200 OK, try next', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>Package Index</h1>\n<ul>\n')
         dirs = os.listdir(self.topdir)
@@ -131,7 +131,7 @@ class EggServer(object):
         listing each distribution file in the directory, along with its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
-        start_response('All OK', [('Content-Type', 'text/html')])
+        start_response('All OK, please continue', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>%s Distributions</h1>\n<ul>\n'%(dpath,))
         for f in os.listdir(abspath):
