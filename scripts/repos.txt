@@ -169,15 +169,15 @@ def do_fix(repo_path, options):
         names.extend(filenames)
         for name in names:
             path = os.path.join(dirpath, name)
-            info = os.stat(path)
+            info = os.stat(dirpath)
             mode = info.st_mode
 
             fixup = mode
-            if (mode & stat.S_IRUSR) and not (mode & stat.S_IRGRP):
+            if (mode & stat.S_IRUSR) and not (st_mode & stat.S_IRGRP):
                 fixup |= stat.S_IRGRP
-            if (mode & stat.S_IWUSR) and not (mode & stat.S_IWGRP):
+            if (mode & stat.S_IWUSR) and not (st_mode & stat.S_IWGRP):
                 fixup |= stat.S_IWGRP
-            if (mode & stat.S_IXUSR) and not (mode & stat.S_IXGRP):
+            if (mode & stat.S_IXUSR) and not (st_mode & stat.S_IXGRP):
                 fixup |= stat.S_IXGRP
 
             if options.verbose:
