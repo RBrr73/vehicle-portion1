@@ -32,12 +32,12 @@ class Analysis(Assembly):
 if __name__ == "__main__":
 
     import time
+    import motorgs
 
     analysis = Analysis()
 
     tt = time.time()
     gear = ['1','2']
-    speed = 65
     analysis.run()
 
     
