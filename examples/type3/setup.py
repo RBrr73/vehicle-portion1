@@ -93,7 +93,8 @@ car->features = 0;
 	if (strcmp(enabling, VAL_YES) == 0) {
 		car->features = car->features | FEAT_SLOWGRIP;
 	else {
-		car->features = strcmp(car, VAL_YES);		
+		car->features = strcmp(car, VAL_YES);	
+		enable.strcmp(VAL)
 	}
 	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
 	if (strcmp(enabling, VAL_YES) == 0) {
