@@ -57,7 +57,6 @@ class Simulation(Assembly):
         self.DOE_Validate.add_response("trig_calc.f_x_sin")
         self.DOE_Validate.add_response("trig_calc.f_x_cos")
         self.DOE_Validate.add_response("trig_meta_model.f_x_sin")
-        self.DOE_Validate.add_response("trig_meta_model.f_x_cos")
 
         #Iteration Hierarchy
         self.driver.workflow.add(['DOE_Trainer', 'DOE_Validate'])
@@ -73,7 +72,7 @@ if __name__ == "__main__":
     train_inputs = sim.DOE_Trainer.case_inputs.trig_calc.x
     train_actual_sin = sim.DOE_Trainer.case_outputs.trig_calc.f_x_sin
     train_actual_cos = sim.DOE_Trainer.case_outputs.trig_calc.f_x_cos
-    inputs = sim.DOE_Validate.case_inputs.trig_meta_model.x
+    inputs = sim.DOE_Validate.case_inputs.trig_beta_model.x
     actual_sin = sim.DOE_Validate.case_outputs.trig_calc.f_x_sin
     actual_cos = sim.DOE_Validate.case_outputs.trig_calc.f_x_cos
     predicted_sin = sim.DOE_Validate.case_outputs.trig_meta_model.f_x_sin
