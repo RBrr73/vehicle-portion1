@@ -109,7 +109,7 @@ if __name__ == "__main__":
     
     # Co-kriging with 1 level of fidelity a.k.a. kriging   
     surrogate = KrigingSurrogate()   # uncomment to use the existing Kriging implementation
-    sim_k = Simulation(surrogate, nfi=1) 
+    sim_k = Simulation(surrogate, nfi=2) 
     sim_k.run()
 
     predicted_k = np.array([d.mu for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
