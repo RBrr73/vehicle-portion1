@@ -25,6 +25,7 @@ class LowFidelityModel(Component):
     
     def execute(self):
         x = self.x
+        sigma_x = np.array([d.sigma for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
         self.f_x = 0.5*((6*x-2)**2)*np.sin((6*x-2)*2)+(x-0.5)*10. - 5
 
 
