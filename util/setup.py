@@ -31,11 +31,12 @@ setup(name='oottadao.util',
           'oottadao.util.test': ['src/doubler.py']
       },
       test_suite='nose.collector',
-      zip_safe=False,
+      zip_safe=True,
       install_requires=[
           'setuptools',
           'pycrypto==2.3',
           'pyparsing',
+          'zipapply',
           'Traits==4.3.0',
           #'PyYAML==3.09',
       ],
