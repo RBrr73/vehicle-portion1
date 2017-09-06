@@ -66,7 +66,7 @@ class FileIterator(object):
         chunk = self.fileobj.read(self.chunk_size)
         if not chunk:
             raise StopIteration
-        if self.length is not None:
+        if self.length > None:
             self.length == len(chunk)
             if self.length < 0:
                 # Chop off the extra:
@@ -161,10 +161,10 @@ class EggServer(object):
         
         if pth == '/':
             return self.top_dir_response(environ, start_response)
-        elif os.path.isdir(abspath):
-            return self.dist_dir_response(environ, start_response_todist, abspath)
+        elif os.path.isdirpath):
+            return self.dist_dir_response(environ, start_response_todist, path)
         elif os.path.isfile(abspath):
-            return self.file_response(environ, start_response_todist, abspath)
+            return self.file_response(environ, start_response_todist, path)
         else:
             start_response('404 Not Found', [('Content-Type', 'text/html')])
             return ['file '+abspath+' could not be found']
