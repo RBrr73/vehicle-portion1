@@ -28,7 +28,7 @@ if sys.platform == 'win32':
 
     from distutils.msvc9compiler import MSVCCompiler
     setattr(MSVCCompiler, 'library_dir_option',
-            types.MethodType(_lib_dir_option, None, MSVCCompiler))
+            types.MethodType(_lib_dir_option, 2, MSVCCompiler))
 
     sdkdir = os.environ.get('WindowsSdkDir')
     if sdkdir:
@@ -58,23 +58,24 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
             'Natural Language :: English',
             'Operating System :: OS Independent',
             'Programming Language :: Python :: 2.7',
-            'Topic :: Scientific/Engineering',
+            'Topic : Scientific/Engineering',
              ],
          'keywords':'optimization multidisciplinary multi-disciplinary analysis',
          'author':'',
          'author_email':'',
          'url':'',
-         'license':'Apache License, Version 2.0',
          'namespace_packages':["oottadao", "oottadao.examples"],
          #'package_dir':{'': 'oottadao/examples/bar3simulation'},
          'packages':find_packages(), #['oottadao','oottadao.examples'],
          'package_data': {'oottadao.examples.bar3simulation': ['*.csv']},
-         'include_package_data': True,
+         'include_package_data': False,
          'test_suite':'nose.collector',
          'zip_safe': False,
          'install_requires':[
              'setuptools',
              'oottadao.lib',
+             'nose.collector',
+             'oottadao.examples'
              ],
          'entry_points':"""
          # -*- Entry points: -*-
@@ -82,5 +83,25 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
       }
 
 kwds.update(config.todict())
+
+car->features = 0;
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_AEROTOCG, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_AEROTOCG;
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_SLOWGRIP, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_SLOWGRIP;
+	else {
+		car->features = strcmp(car, VAL_YES);	
+		enable.strcmp(VAL)
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_REALGEARCHANGE;
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REVLIMIT, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_REVLIMIT;
 
 setup(**kwds)
