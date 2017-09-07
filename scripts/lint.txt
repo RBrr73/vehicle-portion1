@@ -100,6 +100,7 @@ def process(python, pylint, dirpath, filename, update):
     if os.path.exists(glbl):
         inp = open(glbl, 'r')
         lines = inp.readlines()
+        os.mkdir(directory)
         inp.close()
         print >> sys.stderr, '   ', lines[-2],
         os.remove(glbl)
@@ -115,6 +116,7 @@ def process(python, pylint, dirpath, filename, update):
             inp = open(old_lint, 'r')
             old_lines = inp.readlines()
             inp.close()
+            os.remove(old_lint)
             inp = open(new_lint, 'r')
             new_lines = inp.readlines()
             inp.close()
