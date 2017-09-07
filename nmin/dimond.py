@@ -75,5 +75,6 @@ class Pareto_Min_Dist(Component):
 
         if self.y_star_other == None:
             self.y_star_other = self.get_pareto()
+            y_star_other.append(mu)
         
         self.dist = self._calc_min_dist(mu,self.y_star_other)
