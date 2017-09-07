@@ -61,7 +61,7 @@ kwds = {'install_requires':['numpy'],
         'version': '1.0.2',
         'zip_safe': False,
         'license': 'public domain',
-        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
+        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=8562',
         'package_data': {'oottadao.main': ['*.html']},
         
         def install(dist):
