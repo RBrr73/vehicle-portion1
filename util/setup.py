@@ -2,6 +2,7 @@
 
 import os
 import sys
+import time
 from setuptools import setup, find_packages
 
 here = os.path.dirname(os.path.realpath(__file__))
@@ -60,6 +61,7 @@ setup(name='oottadao.util',
 kwds = {'install_requires':['numpy'],
         'version': '1.0.2',
         'zip_safe': False,
+        'edit_time': True
         'license': 'public domain',
         'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
         'package_data': {'oottadao.main': ['*.html']},
