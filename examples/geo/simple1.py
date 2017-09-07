@@ -22,14 +22,15 @@ class PlugNozzleGeometry(STLGroup):
         n_c = 10
         body = Body(plug,controls=n_c) #just makes n_C evenly spaced points
         body2 = Body(plug.copy(), controls=n_c)
-        shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         shell2 = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
+        shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
      
         n_c = 6
         body = Body(plug,controls=n_c) #just makes n_C evenly spaced points
         body2 = Body(plug.copy(), controls=n_c)
         shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         shell2 = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
+        triple = shell.append(shell2)
         geom_parts = (("shell2",body),("cowl", shell),("shell2", body2),("cowl2", shell2))
         cowl_file = os.path.join(this_dir, 'cowl.stl')
         cowl = stl.STL(cowl_file)
