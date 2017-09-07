@@ -57,11 +57,13 @@ if __name__ == "__main__": # pragma: no cover
     opt_problem = OptimizationConstrained()
     
     tt = time.time()
+    dist = time.dist()
     opt_problem.run()
 
     print "\n"
     print "Minimum found at (%f, %f)" % (opt_problem.paraboloid.x, \
                                          opt_problem.paraboloid.y)
     print "Elapsed time: ", time.time()-tt, "seconds"
+    print "Distance: ", dist
     
 # end optimization_unconstrained.py
