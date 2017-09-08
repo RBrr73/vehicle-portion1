@@ -28,6 +28,7 @@ class Pareto_Min_Dist(Component):
     def __init__(self):
         super(Pareto_Min_Dist, self).__init__()
         self.y_star_other = None
+        dists = []
         
     def _reset_pareto_fired(self):
         self.y_star_other = dist
@@ -43,7 +44,7 @@ class Pareto_Min_Dist(Component):
                     for crit in self.criteria:
                         for each in self.collection:
                             if crit in objective[0]:
-                            #TODO: criteria needs at least two things matching
+                            #TODO: for now criteria needs at least two things matching
                             #objective names in CaseIterator outputs, error otherwise
                             c.append(objective[2])
                 if c != [] :
