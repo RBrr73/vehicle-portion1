@@ -66,6 +66,7 @@ def make_download_index(url):
     # This section is meant to display everything in the misc folder at this level. 
     miscdir=os.path.join(startdir,'misc')
     out.write('\n<h1>Miscellaneous Downloads</h1>\n')
+    out.write('\n<h1>File List</h1>\n')
     files = os.listdir(miscdir)
     if len(files): out.write('  <ul>\n')
     for f in files:
@@ -77,6 +78,7 @@ def make_download_index(url):
         create_date = time.localtime(stats[9])
         create_date1 = time.localtime(stats[8])
         create_date2 = time.localtime(stats[7])
+        create_date3 = time.localtime(stats[6])
         #print "times "+ time.localtime(stats[9]) + " " + time.localtime(stats[8]) + " " + time.localtime(stats[7]) 
         #dir_date = time.strftime("%m/%d/%y %H:%M:%S", create_date)
         #dir_date1 = time.strftime("%m/%d/%y %H:%M:%S", create_date1)
