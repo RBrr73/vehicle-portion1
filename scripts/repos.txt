@@ -140,8 +140,6 @@ def do_fix(repo_path, options):
     directories = (
         'buildout/bin',
         'buildout/develop-eggs',
-        'buildout/eggs',
-        'buildout/html',
         'buildout/parts',
         'docs/_build',
     )
