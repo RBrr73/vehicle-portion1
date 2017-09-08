@@ -58,6 +58,8 @@ class EngineOptimization(Assembly):
                                   low=0.01, high=1.0)
         self.sim_acc.add_parameter('vehicle.current_gear', name='gear',
                                   low=0, high=5)
+        self.sim_acc.add_parameter('vehicle.fuel_burn', name='fuel',
+                                  low=0, high=26)
         self.sim_acc.add_objective('vehicle.acceleration', name='acceleration')
         self.sim_acc.add_objective('vehicle.overspeed', name='overspeed')
         
