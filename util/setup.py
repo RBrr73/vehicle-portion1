@@ -46,13 +46,10 @@ setup(name='oottadao.util',
       plotgraph=oottadao.util.graphplot:main
       dotgraph=oottadao.util.dotgraph:main
       plotgraph=oottadao.util.plotgraph:main
-      add_reqs=oottadao.util.addreqs:add_reqs
-      add_reqs=oottadao.util.addreqs:mit
       add_reqs=oottadao.util.addreqs:main
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
       pottodump=pottodao.util.dep:main
       envdump=oottadao.util.envirodump:envdump
-      pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath
       combine_paths=oottadao.util.lib:combine_paths
       """
