@@ -133,7 +133,7 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
@@ -152,13 +152,13 @@ html_static_path = ['_static']
 #html_format_tables = True
 
 # If false, no viewcount tables are generated.
-#html_viewcount_tables = True
+html_viewcount_tables = True
 
 # If true, the index is split into individual pages for each letter.
-#html_split_index = False
+html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #html_show_sphinx = True
@@ -195,7 +195,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'SignalProcessingLibrary.tex', u'Signal Processing Library Documentation',
-   u'Matthew Baker', 'manual'),
+  'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -225,7 +225,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'signalprocessinglibrary', u'Signal Processing Library Documentation',
-     [u'Matthew Baker'], 1)
+     1)
 ]
 
 # If true, show URL addresses after external links.
@@ -239,7 +239,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'SignalProcessingLibrary', u'Signal Processing Library Documentation',
-   u'Matthew Baker', 'SignalProcessingLibrary', 'One line description of project.',
+   'SignalProcessingLibrary', 'One line description of project.',
    'Miscellaneous'),
 ]
 
