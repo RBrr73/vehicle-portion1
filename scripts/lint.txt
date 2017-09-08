@@ -102,7 +102,7 @@ def process(python, pylint, dirpath, filename, update):
         lines = inp.readlines()
         os.mkdir(directory)
         inp.close()
-        print >> sys.stderr, '   ', lines[-2],
+        print >> sys.stderr, '   ',
         os.remove(glbl)
 
     # Compare against previous output.
@@ -126,8 +126,6 @@ def process(python, pylint, dirpath, filename, update):
             if diff_lines:
                 print >> sys.stderr, ''
                 sys.stderr.writelines(diff_lines)
-        else:
-            print >> sys.stderr, '    No previous output.'
     else:
         print >> sys.stderr, '    No pylint output!'
 
