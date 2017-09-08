@@ -106,6 +106,8 @@ c     enddo
 C     CONSTANTS.
       NDV1=NDV+1
       NDV2=NDV+2
+      NDV3=NDV+3
+      NDV4=NDV+4
       IF (IGOTO.EQ.0) GO TO 40
 C     ------------------------------------------------------------------
 C                     CHECK FOR UNBOUNDED SOLUTION
