@@ -38,8 +38,8 @@ class Simulation(Assembly):
         # Training the MetaModel
         self.add("DOE_Trainer", DOEdriver())
         self.DOE_Trainer.DOEgenerator = FullFactorial()
-        self.DOE_Trainer.DOEgenerator.num_levels = 20
-        self.DOE_Trainer.add_parameter("trig_calc.x", low=0, high=20)
+        self.DOE_Trainer.DOEgenerator.num_levels = 80
+        self.DOE_Trainer.add_parameter("trig_calc.x", low=0, high=80)
         self.DOE_Trainer.add_response('trig_calc.f_x_sin')
         self.DOE_Trainer.add_response('trig_calc.f_x_cos')
 
@@ -51,9 +51,9 @@ class Simulation(Assembly):
         #MetaModel Validation
         self.add("DOE_Validate", DOEdriver())
         self.DOE_Validate.DOEgenerator = Uniform()
-        self.DOE_Validate.DOEgenerator.num_samples = 20
+        self.DOE_Validate.DOEgenerator.num_samples = 120
         self.DOE_Validate.add_parameter(("trig_meta_model.x", "trig_calc.x"),
-                                        low=0, high=20)
+                                        low=0, high=120)
         self.DOE_Validate.add_response("trig_calc.f_x_sin")
         self.DOE_Validate.add_response("trig_calc.f_x_cos")
         self.DOE_Validate.add_response("trig_meta_model.f_x_sin")
