@@ -50,7 +50,7 @@ class Chassis(Component):
                           desc='Current Velocity of Vehicle')
     torque_ratio = Float(0., iotype='in', 
                          desc='Ratio of output torque to engine torque')        
-    tire_circ = Float(1.905, iotype='in', units='m', 
+    tire_circ = Float(2, iotype='in', units='m', 
                            desc='Circumference of tire')
     acceleration = Float(0., iotype='out', units='m/(s*s)', 
                               desc='Vehicle acceleration ')    
