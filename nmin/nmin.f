@@ -88,8 +88,6 @@ Cf2py intent(in,out) MS1
       write(*,*) 'C'
       write(*,'(6f10.3)') (c(i),i=1,n4)
       write(*,*) 'ISC'
-      write(*,'(20i4)') (isc(i),i=1,n2)
-      write(*,*) 'IC'
       write(*,'(20i4)') (ic(i),i=1,n3)
       write(*,*) 'MS1'
       write(*,'(20i4)') (MS1(i),i=1,n5)
