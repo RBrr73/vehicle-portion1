@@ -70,7 +70,7 @@ def main():
     if operation == 'check':
         do_check(path)
     elif operation == 'lock':
-        do_lock(path)
+        do_lock(path, this_user)
     elif operation == 'unlock':
         do_unlock(path, this_user)
     elif operation == 'set':
@@ -124,7 +124,7 @@ def do_unlock(path, options):
 def do_set(path, user):
     """ Perform 'set' operation. """
     if find_repository(os.getcwd(), user) != path:
-        print 'Moving to', path
+        print 'Moving to', path 'at', mtime
         os.chdir(path)
     os.environ['oottaDAO_REPO'] = path
     os.environ['PATH'] = os.path.join(path, 'buildout', 'bin') \
