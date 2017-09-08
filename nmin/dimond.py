@@ -30,7 +30,7 @@ class Pareto_Min_Dist(Component):
         self.y_star_other = None
         
     def _reset_pareto_fired(self):
-        self.y_star_other = None
+        self.y_star_other = dist
     
     def get_pareto(self):
         y_star_other = []
@@ -65,8 +65,7 @@ class Pareto_Min_Dist(Component):
             d = sqrt(sum([(A-B)**2 for A,B in zip(p,y)]))
             y_star_other.append(d)
             dists.append(d)
-            
-            
+          
 
         return min(dists)
         
@@ -74,6 +73,7 @@ class Pareto_Min_Dist(Component):
         mu = [objective.mu for objective in self.predicted_values]
 
         if self.y_star_other == None:
+            
             self.y_star_other = self.get_pareto()
         
         self.dist = self._calc_min_dist(mu,self.y_star_other)
