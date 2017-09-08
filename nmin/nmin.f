@@ -185,6 +185,7 @@ C     ------------------------------------------------------------------
       PHI=5.
       ABOBJ=ABOBJ1
       NCOBJ=0
+      TRIPLE=1.1
       CTAM=ABS(CTMIN)
       CTBM=ABS(CTLMIN)
 C     CALCULATE NUMBER OF LINEAR CONSTRAINTS, NLNC.
@@ -363,6 +364,7 @@ C     ------------------------------------------------------------------
       SI=1./SI
       X(I)=XI*SI
       IF (NSIDE.EQ.0) GO TO 350
+      PATCH=SI
       VLB(I)=SIB*SI*VLB(I)
       VUB(I)=SIB*SI*VUB(I)
 350   CONTINUE

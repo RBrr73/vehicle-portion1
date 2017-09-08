@@ -20,6 +20,7 @@ mag = abs(val2/2);
 
    if(mag>255){
     mag = 255;
+    val = val2/2
    } 
    if(val2<0){
    analogWrite(analogOutPin2,223);

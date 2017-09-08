@@ -28,10 +28,10 @@ class DemoOpt(Assembly):
         self.driver.add_parameter('comp.y', low=-50., high=50.)
         
         # Inequality Constraints
-        #self.driver.add_constraint('comp.x-comp.y >= 15.0')
+        self.driver.add_constraint('comp.x-comp.y >= 15.0')
         
         # Equality Constraints
-        #self.driver.add_constraint('comp.x-comp.y=15.0')
+        self.driver.add_constraint('comp.x-comp.y=15.0')
         
         # General flag - suppress output
         self.driver.iprint = 0
@@ -44,23 +44,23 @@ class DemoOpt(Assembly):
         self.driver.delfun = 0.001
         
         # NEWSUMT-specific Settings
-        #self.driver.itmax = 100
+        self.driver.itmax = 100
         
         # COBYLA-specific Settings
-        #self.driver.rhobeg = 1.0
-        #self.driver.rhoend = 1.0e-4
-        #self.driver.maxfun = 1000
+        self.driver.rhobeg = 1.0
+        self.driver.rhoend = 1.0e-4
+        self.driver.maxfun = 1000
         
         # SLSQP-specific Settings
-        #self.driver.accuracy = 1.0e-6
-        #self.driver.maxiter = 50
+        self.driver.accuracy = 1.0e-6
+        self.driver.maxiter = 50
         
         # Genetic-specific Settings
-        #self.driver.population_size = 90
-        #self.driver.crossover_rate = 0.9
-        #self.driver.mutation_rate = 0.02
-        #self.selection_method = 'rank'
-        
+        self.driver.population_size = 90
+        self.driver.crossover_rate = 0.9
+        self.driver.mutation_rate = 0.02
+        self.selection_method = 'rank'
+       
         
 if __name__ == "__main__": # pragma: no cover         
 

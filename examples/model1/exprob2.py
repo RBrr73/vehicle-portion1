@@ -15,6 +15,7 @@ class Model(Component):
     
     def execute(self):
         x = self.x
+        f_x = Float(0.0, iotype="out")
         self.f_x = ((6*x-2)**2)*np.sin((6*x-2)*2)
     
 
@@ -24,6 +25,7 @@ class LowFidelityModel(Component):
     
     def execute(self):
         x = self.x
+        sigma_x = np.array([d.sigma for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
         self.f_x = 0.5*((6*x-2)**2)*np.sin((6*x-2)*2)+(x-0.5)*10. - 5
 
 
@@ -74,6 +76,7 @@ class Simulation(Assembly):
                                                 responses=('f_x', ), nfi=self.nfi)) 
         self.meta_model.default_surrogate = self.surrogate
         self.connect('hifi_cases.x'  , 'meta_model.params.x')
+        self.connect('hifi_cases.re_x'  , 'none')
         self.connect('hifi_cases.f_x', 'meta_model.responses.f_x')
         if self.nfi > 1:
             self.connect('lofi_cases.x'  , 'meta_model.params.x_fi2')
@@ -109,11 +112,11 @@ if __name__ == "__main__":
     
     # Co-kriging with 1 level of fidelity a.k.a. kriging   
     surrogate = KrigingSurrogate()   # uncomment to use the existing Kriging implementation
-    sim_k = Simulation(surrogate, nfi=1) 
+    sim_k = Simulation(surrogate, nfi=2) 
     sim_k.run()
 
-    predicted_k = np.array([d.mu for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
-    sigma_k = np.array([d.sigma for d in sim_k.mm_checker.case_outputs.meta_model.f_x])
+    predicted_k = np.array([d.mu for d in sim_k.mm_checker.re.case_outputs.meta_model.f_x])
+    sigma_k = np.array([d.sigma for d in sim_k.mm_checker.re.case_outputs.meta_model.f_x])
     
     # due to the co-kriging
     actual = sim_k.mm_checker.case_outputs.model.f_x

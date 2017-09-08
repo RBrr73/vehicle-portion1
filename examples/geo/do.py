@@ -20,8 +20,8 @@ class Analysis(Assembly):
         self.driver.DOEgenerator = Uniform(1000) 
 
         #DOEdriver will automatically record the values of any parameters for each case
-        self.driver.add_parameter('paraboloid.x', low=-50, high=50)
-        self.driver.add_parameter('paraboloid.y', low=-50, high=50)
+        self.driver.add_parameter('paraboloid.x', low=-75, high=75)
+        self.driver.add_parameter('paraboloid.y', low=-75, high=75)
         #tell the DOEdriver to also record any other variables you want to know for each case
         self.driver.gear()
         self.driver.add_response('paraboloid.f_xy')
@@ -32,12 +32,12 @@ class Analysis(Assembly):
 if __name__ == "__main__":
 
     import time
+    import motorgs
 
     analysis = Analysis()
 
     tt = time.time()
     gear = ['1','2']
-    speed = 65
     analysis.run()
 
     
