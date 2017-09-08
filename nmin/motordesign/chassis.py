@@ -44,16 +44,17 @@ class Chassis(Component):
                       desc='Frontal area')
     engine_torque = Float(200.0, iotype='in', units='N*m', 
                                desc='Torque at engine output')
-    mass_engine = Float(200.0, iotype='in', units='kg',
+    mass_engine = Float(150.0, iotype='in', units='kg',
                              desc='Engine weight estimation')
     velocity = Float(0., iotype='in', units='m/s', 
                           desc='Current Velocity of Vehicle')
     torque_ratio = Float(0., iotype='in', 
                          desc='Ratio of output torque to engine torque')        
-    tire_circ = Float(1.905, iotype='in', units='m', 
+    tire_circ = Float(2, iotype='in', units='m', 
                            desc='Circumference of tire')
     acceleration = Float(0., iotype='out', units='m/(s*s)', 
                               desc='Vehicle acceleration ')    
+
         
         
     def execute(self):
@@ -61,12 +62,13 @@ class Chassis(Component):
         
         torque = self.engine_torque*self.torque_ratio
         tire_radius = self.tire_circ/(2.0*pi)
+                       
+        friction = self.Cf*mass*9.8
+        drag = .5*(1.225)*self.Cd*self.area*V*V
         
         mass = self.mass_vehicle + self.mass_engine
         V = self.velocity
-        
-        friction = self.Cf*mass*9.8
-        drag = .5*(1.225)*self.Cd*self.area*V*V
+
         
         self.acceleration = (torque/tire_radius - friction - drag)/mass
         

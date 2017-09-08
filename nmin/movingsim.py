@@ -165,9 +165,6 @@ class SimEconomy(Driver):
     overspeed:
         Vehicle overspeed.
     
-    underspeed: 
-        Vehicle underspeed.
-    
     
     Simulation Inputs
     profilename: str

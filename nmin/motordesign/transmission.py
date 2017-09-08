@@ -52,9 +52,6 @@ class Transmission(Component):
                         aliases=('N','1st','2nd','3rd','4th','5th'))
     velocity = Float(0., iotype='in', units='mi/h',
                      desc='Expected Velocity of Vehicle')
-
-    OptimalRPM = Float(1000., iotype='out', units='rpm',
-                     desc='Optimal Engine RPM')  
     RPM = Float(1000., iotype='out', units='rpm',
                      desc='Engine RPM')        
     torque_ratio = Float(0., iotype='out',

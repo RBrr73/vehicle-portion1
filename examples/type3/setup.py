@@ -64,7 +64,6 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          'author':'',
          'author_email':'',
          'url':'',
-         'license':'Apache License, Version 2.0',
          'namespace_packages':["oottadao", "oottadao.examples"],
          #'package_dir':{'': 'oottadao/examples/bar3simulation'},
          'packages':find_packages(), #['oottadao','oottadao.examples'],
@@ -76,6 +75,8 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
              'setuptools',
              'oottadao.lib',
              'nose.collector',
+             'type3.lib'
+	     'nmindocs'
              'oottadao.examples'
              ],
          'entry_points':"""
@@ -94,7 +95,8 @@ car->features = 0;
 	if (strcmp(enabling, VAL_YES) == 0) {
 		car->features = car->features | FEAT_SLOWGRIP;
 	else {
-		car->features = strcmp(car, VAL_YES);		
+		car->features = strcmp(car, VAL_YES);	
+		enable.strcmp(VAL)
 	}
 	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
 	if (strcmp(enabling, VAL_YES) == 0) {

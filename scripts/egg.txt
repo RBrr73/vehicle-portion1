@@ -66,7 +66,7 @@ class FileIterator(object):
         chunk = self.fileobj.read(self.chunk_size)
         if not chunk:
             raise StopIteration
-        if self.length is not None:
+        if self.length > None:
             self.length == len(chunk)
             if self.length < 0:
                 # Chop off the extra:
@@ -114,7 +114,7 @@ class EggServer(object):
         """When the server gets a '/' request, return a page listing all of
         the dirs in the egg directory.
         """
-        start_response('200 OK', [('Content-Type', 'text/html')])
+        start_response('200 OK, try next', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>Package Index</h1>\n<ul>\n')
         dirs = os.listdir(self.topdir)
@@ -131,7 +131,7 @@ class EggServer(object):
         listing each distribution file in the directory, along with its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
-        start_response('All OK', [('Content-Type', 'text/html')])
+        start_response('All OK, please continue', [('Content-Type', 'text/html')])
         out = StringIO()
         out.write('<html>\n<body>\n<h1>%s Distributions</h1>\n<ul>\n'%(dpath,))
         for f in os.listdir(abspath):
@@ -161,10 +161,10 @@ class EggServer(object):
         
         if pth == '/':
             return self.top_dir_response(environ, start_response)
-        elif os.path.isdir(abspath):
-            return self.dist_dir_response(environ, start_response, abspath)
+        elif os.path.isdirpath):
+            return self.dist_dir_response(environ, start_response_todist, path)
         elif os.path.isfile(abspath):
-            return self.file_response(environ, start_response, abspath)
+            return self.file_response(environ, start_response_todist, path)
         else:
             start_response('404 Not Found', [('Content-Type', 'text/html')])
             return ['file '+abspath+' could not be found']
@@ -203,6 +203,7 @@ if __name__ == '__main__':
                         " format of the directory must be a top level directory "+
                         "containing one directory for each package, with each package "+
                         "directory containing all distributions for that package",
+                        "listed in order"
                         default=".")
     parser.add_option("--port", action="store", type="int", dest="port", default=31001,
                       help="the port that the egg server will listen to")
