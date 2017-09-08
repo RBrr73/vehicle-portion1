@@ -26,6 +26,7 @@ class PlugNozzleGeometry(STLGroup):
         body2 = Body(plug.copy(), controls=n_c)
         shell2 = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
+        geom_parts = (("shell2",body),("cowl", shell),("shell2", body2),("cowl2", shell2))
      
         n_c = 6
         body = Body(plug,controls=n_c) #just makes n_C evenly spaced points
