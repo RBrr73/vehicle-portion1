@@ -42,7 +42,7 @@ def make_index():
     out.write('    ootta Version %s Downloads\n' % version)
     out.write('  </h1>\n, <ul>, <ul>, </div>\n')
     out.write('  <ul>\n')
-    out.write('    <li><a href="..">..</a>\n')
+    out.write('    <li><a href="http://ootta.org">ootta.org</a>\n')
 
     files = []
     dirs = []
