@@ -36,6 +36,7 @@ class OptimizationConstrained(Assembly):
         
         # Constraints
         self.driver.add_constraint('paraboloid.x-paraboloid.y >= 17.0')
+        self.driver.add_constraint('driver-paraboloid >= .01')
         
          entry_points="""
       [console_scripts]
