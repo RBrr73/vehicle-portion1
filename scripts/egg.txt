@@ -162,8 +162,10 @@ class EggServer(object):
         if pth == '/':
             return self.top_dir_response(environ, start_response)
         elif os.path.isdirpath):
+            dirs = os.listdir(self.topdir)
             return self.dist_dir_response(environ, start_response_todist, path)
         elif os.path.isfile(abspath):
+            dirs = os.listdir(self.topdir)
             return self.file_response(environ, start_response_todist, path)
         else:
             start_response('404 Not Found', [('Content-Type', 'text/html')])
