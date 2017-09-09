@@ -31,7 +31,7 @@ class Pareto_Min_Dist(Component):
         dists = []
         
     def _reset_pareto_fired(self):
-        self.y_star_other = dist
+        self.y_star_other = dist + start_point
     
     def get_pareto(self):
         y_star_other = []
