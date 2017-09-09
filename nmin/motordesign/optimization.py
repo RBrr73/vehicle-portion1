@@ -72,7 +72,6 @@ class EngineOptimization(Assembly):
         self.sim_EPA_city.add_objective('vehicle.overspeed', name='overspeed')
         self.sim_EPA_city.add_objective('vehicle.underspeed', name='underspeed')
         self.sim_EPA_city.add_objective('vehicle.countdown', name='countdown')
-        self.sim_EPA_city.add_objective('vehicle.maximum', name='maximum')
         self.sim_EPA_city.profilename = 'EPA-city.csv'
         
         # EPA Highway MPG Sim Setup
@@ -106,6 +105,8 @@ if __name__ == "__main__": # pragma: list, no cover
         print '---------------------------------'
         print '0-60 Accel Time = ', opt_problem.sim_acc.accel_time
         print 'Total Distance = ', opt_problem.sim_total_dist
+        print 'Engine: Spark Angle = ', opt_problem.vehicle.spark_angle
+        print '---------------------------------'
         print 'EPA City MPG = ', opt_problem.sim_EPA_city.fuel_economy
         print 'EPA Highway MPG = ', opt_problem.sim_EPA_highway.fuel_economy
         print '\n'
