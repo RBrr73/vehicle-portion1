@@ -16,11 +16,11 @@ void setup(){
     
 val = analogRead(analogInPin); 
 val2 = val-512;
-mag = abs(val2/2);
+mag = val2/2;
 
    if(mag>255){
     mag = 255;
-    val = val2/2
+    val = abs(val2/2)
    } 
    if(val2<0){
    analogWrite(analogOutPin2,223);
