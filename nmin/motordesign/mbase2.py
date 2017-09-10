@@ -23,14 +23,14 @@ mag = val2/2;
     val = abs(val2/2)
    } 
    if(val2<0){
-   analogWrite(analogOutPin2,223);
    analogWrite(analogOutPin1,mag);
+   analogWrite(analogOutPin2,223);
    analogWrite(analogOutPin3,255);
    }
    else{
-   analogWrite(analogOutPin3,116);
    analogWrite(analogOutPin1,mag);
    analogWrite(analogOutPin2,255);
+   analogWrite(analogOutPin3,116);
    }
  Serial.println(val);
  Serial.println(mag);
