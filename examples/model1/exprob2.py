@@ -66,7 +66,7 @@ class Simulation(Assembly):
     def configure(self):
         
         # Expensive and Cheap DOE (note: have to be nested)
-        doe_e = [0.0, 0.4, 0.6, 1.0]
+        doe_e = [0.0, 0.4, 0.6, 1.0, 1.8, 2.8]
         doe_c = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 0.9] + doe_e 
         self.add('hifi_cases', CasesBuilder(HighFidelityModel(), doe_e))
         self.add('lofi_cases', CasesBuilder(LowFidelityModel(), doe_c))
@@ -89,6 +89,7 @@ class Simulation(Assembly):
         self.mm_checker.add_parameter("meta_model.x", low=0, high=1)
         self.mm_checker.add_parameter("model.x", low=0, high=1)
         self.mm_checker.add_response("model.f_x")
+        self.mm_checker.add_response("doe_c")
         self.mm_checker.add_response("meta_model.f_x")
         ngrid = 100
         self.mm_checker.case_inputs.meta_model.x = np.linspace(0,1,ngrid)
