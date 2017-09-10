@@ -33,15 +33,15 @@ class Transmission(Component):
     
     # set up interface to the framework  
     # pylint: disable-msg=E1101
-    ratio1 = Float(3.54, iotype='in', 
+    ratio1 = Float(3.50, iotype='in', 
                    desc='Gear ratio in First Gear')
-    ratio2 = Float(2.13, iotype='in', 
+    ratio2 = Float(2.10, iotype='in', 
                    desc='Gear ratio in Second Gear')
-    ratio3 = Float(1.36, iotype='in', 
+    ratio3 = Float(1.40, iotype='in', 
                    desc='Gear ratio in Third Gear')
-    ratio4 = Float(1.03, iotype='in', 
+    ratio4 = Float(1.00, iotype='in', 
                    desc='Gear ratio in Fourth Gear')
-    ratio5 = Float(0.72, iotype='in', 
+    ratio5 = Float(0.70, iotype='in', 
                    desc='Gear ratio in Fifth Gear')
     final_drive_ratio = Float(2.8, iotype='in', 
                               desc='Final Drive Ratio')
