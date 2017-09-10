@@ -74,9 +74,9 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          'install_requires':[
              'setuptools',
              'oottadao.lib',
-             'nose.collector',
-             'type3.lib'
-	     'nmindocs'
+
+             'helpfiles',
+             'ottadao.tests',  
              'oottadao.examples'
              ],
          'entry_points':"""
