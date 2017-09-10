@@ -1,7 +1,6 @@
-try:
-    import pkg_resources
 
-    import test_suite
+    import pkg_resources
+    import test_suite 
     pkg_resources.declare_namespace(__name__)
 master
 except ImportError:
