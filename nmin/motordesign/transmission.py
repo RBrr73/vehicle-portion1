@@ -69,6 +69,7 @@ class Transmission(Component):
         differential = self.final_drive_ratio
         tire_circ = self.tire_circ
         velocity = convert_units(self.velocity, 'mi/h', 'inch/min')
+
         
         self.RPM = (ratios[gear]*differential \
                     *velocity)/(tire_circ)
@@ -78,5 +79,6 @@ class Transmission(Component):
         # partially engage clutch
         if self.RPM < 1000.0 and self.current_gear == 1 :
             self.RPM = 1000.0
+            torque_ratio = ratios[differential]
         
 # End Transmission.py
