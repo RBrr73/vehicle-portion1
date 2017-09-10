@@ -23,10 +23,10 @@ def check_dist():
     #Looking for either 'Anaconda' or 'Continuum Analytics' for proof of Anaconda.
     if "Analytics" in version or "Anaconda" in version:
         dist = 'Anaconda'
-        print 'Anaconda detected. Running conda_build.py with args supplied.'
+        print 'Anaconda detected. Note: Running conda_build.py.'
     else:
         dist = 'Virtualenv'
-        print 'Regular Python detected. Running go-oottadao file with args supplied.'
+        print 'Regular Python detected. Running go-oottadao file. Please continue.'
 
     return dist
 
@@ -34,7 +34,7 @@ def install(dist):
     #call the appropriate installer with the python that ran this script.
     cmd = [sys.executable]
     if dist == "Anaconda":
-        cmd.append('oottadao.devtools/src/oottadao/files/devtools/conda_build3.py')
+        cmd.append('oottadao.devtools/srcdir/oottadao/files/devtools/conda_build3.py')
         cmd.append('dev')
     elif dist == "Virtualenv":
         cmd.append('go-oottadao-dev.py')

@@ -41,8 +41,8 @@ if sys.platform == 'win32':
 
 config = Configuration()
 config.add_extension('oottadao.examples.bar3simulation.bar3', \
-                     sources=['oottadao/examples/bar3simulation/bar3.pyf', \
-                              'oottadao/examples/bar3simulation/bar3.f'],
+                     sources=['oottadao/examples/files/bar3simulation/bar3.pyf', \
+                              'oottadao/examples/files/bar3simulation/bar3.f'],
                      include_dirs=include_dirs,
                      library_dirs=library_dirs)
 
@@ -64,7 +64,6 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          'author':'',
          'author_email':'',
          'url':'',
-         'license':'Apache License, Version 2.0',
          'namespace_packages':["oottadao", "oottadao.examples"],
          #'package_dir':{'': 'oottadao/examples/bar3simulation'},
          'packages':find_packages(), #['oottadao','oottadao.examples'],
@@ -75,7 +74,9 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          'install_requires':[
              'setuptools',
              'oottadao.lib',
-             'nose.collector',
+
+             'helpfiles',
+             'ottadao.tests',  
              'oottadao.examples'
              ],
          'entry_points':"""
@@ -84,5 +85,25 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
       }
 
 kwds.update(config.todict())
+
+car->features = 0;
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_AEROTOCG, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_AEROTOCG;
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_SLOWGRIP, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_SLOWGRIP;
+	else {
+		car->features = strcmp(car, VAL_YES);	
+		enable.strcmp(VAL)
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_REALGEARCHANGE;
+	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REVLIMIT, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_REVLIMIT;
 
 setup(**kwds)

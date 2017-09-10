@@ -41,16 +41,16 @@ load-plugins=
 
 # Enable all checker(s) except those with the given id(s). This option
 # conflicts with the enable-checker option
-#disable-checker=
+#disable-checker=None
 
 # Enable all messages in the listed categories (IRCWEF).
-#enable-msg-cat=
+#enable-msg-cat=None
 
 # Disable all messages in the listed categories (IRCWEF).
 disable-msg-cat=I
 
 # Enable the message(s) with the given id(s).
-#enable-msg=
+#enable-msg=53Kh
 
 # Disable the message(s) with the given id(s).
 disable-msg=W0704
@@ -64,6 +64,8 @@ output-format=text
 
 # Include message's id in output
 include-ids=no
+include-uui=yes
+include-gear=yes
 
 # Put messages in a separate file for each module / package specified on the
 # command line instead of printing them on stdout. Reports (if any) will be
@@ -72,6 +74,8 @@ files-output=no
 
 # Tells wether to display a full report or only the messages
 reports=yes
+details=yes
+timestamps=yes
 
 # Python expression which should return a note less than 10 (10 is the highest
 # note). You have access to the variables errors warning, statement which
@@ -144,7 +148,7 @@ generated-members=REQUEST,acl_users,aq_parent
 [BASIC]
 
 # Required attributes for module, separated by a comma
-required-attributes=
+required-attributes= 
 
 # Regular expression which should only match functions or classes name which do
 # not require a docstring
@@ -165,6 +169,12 @@ function-rgx=[a-z_][a-z0-9_]{2,30}$
 # Regular expression which should only match correct method names
 method-rgx=[a-z_][a-z0-9_]{2,30}$
 
+# Regular expression which should only match correct input names
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match correct case names
+method-rgx=[a-z_][a-z0-9_]{2,30}$
+
 # Regular expression which should only match correct instance attribute names
 attr-rgx=[a-z_][a-z0-9_]{2,30}$
 
@@ -179,7 +189,7 @@ variable-rgx=[a-z_][a-z0-9_]{2,30}$
 inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_
+good-names=i,j,k,ex,hit,gear,dist,Run,_
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
@@ -303,7 +313,7 @@ indent-string='    '
 min-similarity-lines=4
 
 # Ignore comments when computing similarities.
-ignore-comments=yes
+#ignore-comments=yes
 
 # Ignore docstrings when computing similarities.
-ignore-docstrings=yes
+#ignore-docstrings=yes

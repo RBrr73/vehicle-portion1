@@ -69,7 +69,7 @@ else:
 
 REQUIRED_MODULES = ['os', 'posix', 'posixpath', 'nt', 'ntpath', 'genericpath',
                     'fnmatch', 'locale', 'encodings', 'codecs',
-                    'stat', 'UserDict', 'readline', 'copy_reg', 'types',
+                    'stat', 'UserDict', 
                     're', 'sre', 'sre_parse', 'sre_constants', 'sre_compile',
                     'zlib', 'test_suite']
 
@@ -89,7 +89,7 @@ elif majver == 3:
     REQUIRED_MODULES.extend(['_abcoll', 'warnings', 'linecache', 'abc', 'io',
                              '_weakrefset', 'copyreg', 'tempfile', 'random',
                              '__future__', 'collections', 'keyword', 'tarfile',
-                             'shutil', 'struct', 'copy', 'tokenize', 'token',
+                             'shutil', 'struct', 'tokenize', 'token',
                              'functools', 'heapq', 'bisect', 'weakref',
                              'reprlib'])
     if minver >= 2:
@@ -143,7 +143,6 @@ elif majver == 3:
             #"fileinput",
             #"formatter",
             #"fractions",
-            #"ftplib",
             #"functools",
             #"getopt",
             #"getpass",

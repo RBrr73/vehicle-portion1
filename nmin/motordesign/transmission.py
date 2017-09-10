@@ -33,15 +33,15 @@ class Transmission(Component):
     
     # set up interface to the framework  
     # pylint: disable-msg=E1101
-    ratio1 = Float(3.54, iotype='in', 
+    ratio1 = Float(3.50, iotype='in', 
                    desc='Gear ratio in First Gear')
-    ratio2 = Float(2.13, iotype='in', 
+    ratio2 = Float(2.10, iotype='in', 
                    desc='Gear ratio in Second Gear')
-    ratio3 = Float(1.36, iotype='in', 
+    ratio3 = Float(1.40, iotype='in', 
                    desc='Gear ratio in Third Gear')
-    ratio4 = Float(1.03, iotype='in', 
+    ratio4 = Float(1.00, iotype='in', 
                    desc='Gear ratio in Fourth Gear')
-    ratio5 = Float(0.72, iotype='in', 
+    ratio5 = Float(0.70, iotype='in', 
                    desc='Gear ratio in Fifth Gear')
     final_drive_ratio = Float(2.8, iotype='in', 
                               desc='Final Drive Ratio')
@@ -51,8 +51,7 @@ class Transmission(Component):
     current_gear = Enum(0, (0,1,2,3,4,5), iotype='in', desc='Current Gear', \
                         aliases=('N','1st','2nd','3rd','4th','5th'))
     velocity = Float(0., iotype='in', units='mi/h',
-                     desc='Current Velocity of Vehicle')
-
+                     desc='Expected Velocity of Vehicle')
     RPM = Float(1000., iotype='out', units='rpm',
                      desc='Engine RPM')        
     torque_ratio = Float(0., iotype='out',
@@ -70,6 +69,7 @@ class Transmission(Component):
         differential = self.final_drive_ratio
         tire_circ = self.tire_circ
         velocity = convert_units(self.velocity, 'mi/h', 'inch/min')
+
         
         self.RPM = (ratios[gear]*differential \
                     *velocity)/(tire_circ)
@@ -79,5 +79,6 @@ class Transmission(Component):
         # partially engage clutch
         if self.RPM < 1000.0 and self.current_gear == 1 :
             self.RPM = 1000.0
+            torque_ratio = ratios[differential]
         
 # End Transmission.py

@@ -18,8 +18,8 @@ C
       COMMON /CONSAV/ DM1,DM2,DM3,DM4,DM5,DM6,DM7,DM8,DM9,DM10,DM11,DM12
      1,DCT,DCTL,PHI,ABOBJ,CTA,CTAM,CTBM,OBJ1,SLOPE,DX,DX1,FI,XI,DFTDF1,A
      2LP,FFF,A1,A2,A3,A4,F1,F2,F3,F4,CV1,CV2,CV3,CV4,APP,ALPCA,ALPFES,AL
-     3PLN,ALPMIN,ALPNC,ALPSAV,ALPSID,ALPTOT,RSPACE,IDM1,IDM2,IDM3,JDIR,I
-     4OBJ,KOBJ,KCOUNT,NCAL(2),NFEAS,MSCAL,NCOBJ,NVC,KOUNT,ICOUNT,IGOOD1,
+     3PLN,ALPMIN,ALPNC,ALPSAV,ALPSID,ALPTOT,RSPACE,HGIM,IDM1,IDM2,IDM3,JDIR,I
+     4OBJ,KOBJ,KCOUNT,LIL,NCAL(2),NFEAS,MSCAL,NCOBJ,NVC,PLUP,KOUNT,ICOUNT,IGOOD1,
      5IGOOD2,IGOOD3,IGOOD4,IBEST,III,NLNC,JGOTO,ISPACE(2)
 C     ROUTINE TO SOLVE CONSTRAINED OR UNCONSTRAINED FUNCTION
 C     MINIMIZATION.
@@ -88,8 +88,6 @@ Cf2py intent(in,out) MS1
       write(*,*) 'C'
       write(*,'(6f10.3)') (c(i),i=1,n4)
       write(*,*) 'ISC'
-      write(*,'(20i4)') (isc(i),i=1,n2)
-      write(*,*) 'IC'
       write(*,'(20i4)') (ic(i),i=1,n3)
       write(*,*) 'MS1'
       write(*,'(20i4)') (MS1(i),i=1,n5)
@@ -106,6 +104,8 @@ c     enddo
 C     CONSTANTS.
       NDV1=NDV+1
       NDV2=NDV+2
+      NDV3=NDV+3
+      NDV4=NDV+4
       IF (IGOTO.EQ.0) GO TO 40
 C     ------------------------------------------------------------------
 C                     CHECK FOR UNBOUNDED SOLUTION
@@ -185,6 +185,7 @@ C     ------------------------------------------------------------------
       PHI=5.
       ABOBJ=ABOBJ1
       NCOBJ=0
+      TRIPLE=1.1
       CTAM=ABS(CTMIN)
       CTBM=ABS(CTLMIN)
 C     CALCULATE NUMBER OF LINEAR CONSTRAINTS, NLNC.
@@ -363,6 +364,7 @@ C     ------------------------------------------------------------------
       SI=1./SI
       X(I)=XI*SI
       IF (NSIDE.EQ.0) GO TO 350
+      PATCH=SI
       VLB(I)=SIB*SI*VLB(I)
       VUB(I)=SIB*SI*VUB(I)
 350   CONTINUE

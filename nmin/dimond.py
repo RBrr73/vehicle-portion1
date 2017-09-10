@@ -1,7 +1,7 @@
 from numpy import sqrt
 
-from oottadao.main.datatypes.api import ListStr, Float, Array, Event, List
-from oottadao.main.component import Component
+from oottadao.main.datatypes.api import ListStr, Float, Array, Cell, Event, List
+from oottadao.main.component import Component, Library
 from oottadao.main.uncertain_distributions import NormalDistribution
 
 class Pareto_Min_Dist(Component):
@@ -28,9 +28,10 @@ class Pareto_Min_Dist(Component):
     def __init__(self):
         super(Pareto_Min_Dist, self).__init__()
         self.y_star_other = None
+        dists = []
         
     def _reset_pareto_fired(self):
-        self.y_star_other = None
+        self.y_star_other = dist + start_point
     
     def get_pareto(self):
         y_star_other = []
@@ -43,7 +44,7 @@ class Pareto_Min_Dist(Component):
                     for crit in self.criteria:
                         for each in self.collection:
                             if crit in objective[0]:
-                            #TODO: criteria needs at least two things matching
+                            #TODO: for now criteria needs at least two things matching
                             #objective names in CaseIterator outputs, error otherwise
                             c.append(objective[2])
                 if c != [] :
@@ -63,7 +64,9 @@ class Pareto_Min_Dist(Component):
         
         for y in y_star_other:
             d = sqrt(sum([(A-B)**2 for A,B in zip(p,y)]))
+            y_star_other.append(d)
             dists.append(d)
+          
 
         return min(dists)
         
@@ -71,6 +74,8 @@ class Pareto_Min_Dist(Component):
         mu = [objective.mu for objective in self.predicted_values]
 
         if self.y_star_other == None:
+            
             self.y_star_other = self.get_pareto()
+            y_star_other.append(mu)
         
         self.dist = self._calc_min_dist(mu,self.y_star_other)

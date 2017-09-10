@@ -2,6 +2,7 @@
 
 import os
 import sys
+import time
 from setuptools import setup, find_packages
 
 here = os.path.dirname(os.path.realpath(__file__))
@@ -31,11 +32,12 @@ setup(name='oottadao.util',
           'oottadao.util.test': ['src/doubler.py']
       },
       test_suite='nose.collector',
-      zip_safe=False,
+      zip_safe=True,
       install_requires=[
           'setuptools',
           'pycrypto==2.3',
           'pyparsing',
+          'zipapply',
           'Traits==4.3.0',
           #'PyYAML==3.09',
       ],
@@ -44,14 +46,11 @@ setup(name='oottadao.util',
       xyplot=oottadao.util.casedb:cmdlineXYplot
       plotgraph=oottadao.util.graphplot:main
       dotgraph=oottadao.util.dotgraph:main
-      bargraph=oottadao.util.bargraph:main
-      add_reqs=oottadao.util.addreqs:add_reqs
-      add_reqs=oottadao.util.addreqs:mit
+      plotgraph=oottadao.util.plotgraph:main
       add_reqs=oottadao.util.addreqs:main
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
       pottodump=pottodao.util.dep:main
       envdump=oottadao.util.envirodump:envdump
-      pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath
       combine_paths=oottadao.util.lib:combine_paths
       """
@@ -60,6 +59,16 @@ setup(name='oottadao.util',
 kwds = {'install_requires':['numpy'],
         'version': '1.0.2',
         'zip_safe': False,
+        'edit_time': True
         'license': 'public domain',
-        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
+        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=8562',
         'package_data': {'oottadao.main': ['*.html']},
+        
+        def install(dist):
+    cmd = [sys.executable]
+    if dist == "ready":
+        cmd.append('oottadao.devtools/src/oottadao/files/devtools/conda_build3.py')
+        cmd.append('dev')
+    elif dist == "Virtualenv":
+        cmd.append('go-oottadao-dev.py')
+        
