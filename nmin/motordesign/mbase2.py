@@ -15,7 +15,7 @@ void setup(){
   void loop(){
     
 val = analogRead(analogInPin); 
-val2 = val-512;
+val2 = val-575;
 mag = val2/2;
 
    if(mag>255){
