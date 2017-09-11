@@ -49,7 +49,8 @@ class CasesBuilder(Assembly):
         
         self.driver.workflow.add('model')
         self.driver.add_parameter("model.x", low=0, high=1)
-        self.driver.add_response("model.f_x")
+        self.driver.add_response("model.f_x")        
+        self.driver.add_response("model.sigma_x")
         self.driver.case_inputs.model.x = self.cases 
         
         self.create_passthrough('driver.case_inputs.model.x')
@@ -135,7 +136,7 @@ if __name__ == "__main__":
     plt.plot(check, predicted_cok + 2*sigma_cok, 'g', alpha=0.5, label='I95%')
     plt.plot(check, predicted_cok - 2*sigma_cok, 'g', alpha=0.5)
     plt.fill_between(check, predicted_cok + 2*sigma_cok,
-                            predicted_cok - 2*sigma_cok, facecolor='g', alpha=0.2)
+                            predicted_cok - 2*sigma_cok, facecolor='r', alpha=0.2)
     plt.plot(check, predicted_k, 'b', label='Krigring')
     plt.plot(check, predicted_k + 2*sigma_k, 'b', alpha=0.5, label='I95%')
     plt.plot(check, predicted_k - 2*sigma_k, 'b', alpha=0.5)
