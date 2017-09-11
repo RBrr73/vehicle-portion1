@@ -29,6 +29,8 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'sphinx.ext.viewcode',
                 'matplotlib.sphinxext.mathmpl', 
                 'matplotlib.sphinxext.only_directives', 
                 'matplotlib.sphinxext.plot_directive',
+                'matplotlib.sphinxext.test_directives',
+                'matplotlib.sphinxext.point_directive',
                 'matplotlib.sphinxext.plot_calculation',
                 'matplotlib.sphinxext.plot_direction']
 
