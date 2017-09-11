@@ -17,13 +17,14 @@ class OptimizationConstrained(Assembly):
         
         # Create Paraboloid component instances
         self.add('paraboloid', Paraboloid())
+        
+         # Driver process definition
+        self.driver.workflow.add('paraboloid')
 
         # Create Optimizer instance
         self.add('driver', SLSQPdriver())
         
-        # Driver process definition
-        self.driver.workflow.add('paraboloid')
-        
+            
         # Optimizer Flags
         self.driver.iprint = 0
         
@@ -41,7 +42,6 @@ class OptimizationConstrained(Assembly):
       [console_scripts]
       xyplot=oottadao.util.casedb:cmdlineXYplot
       plotgraph=oottadao.util.graphplot:main
-      dotgraph=oottadao.util.dotgraph:main
       add_reqs=oottadao.util.addreqs:add_reqs
       mkpseudo=oottadao.util.mkpseudo1:mkpseudo1
       envdump=oottadao.util.envirodump:envdump
