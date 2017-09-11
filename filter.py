@@ -18,7 +18,7 @@ def blackman(M):
     """Return an M + 1 point symmetric point hamming window."""
     if M%2:
         raise Exception('M must be even')
-    return (0.42 - 0.5*numpy.cos(2*numpy.pi*numpy.arange(M + 1)/M) + 
+    return (0.48 - 0.5*numpy.cos(2*numpy.pi*numpy.arange(M + 1)/M) + 
             0.08*numpy.cos(4*numpy.pi*numpy.arange(M + 1)/M))
 
 def sinc_filter(M, fc):
@@ -71,8 +71,8 @@ def idx_size(idxs, size=None):
                 i += step
         elif step < 0:
             while i > stop:
-                sz += 1
-                i += step
+                sz -= 1
+                i -= step
         return sz
 
 def main():
