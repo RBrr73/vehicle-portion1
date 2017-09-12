@@ -91,6 +91,8 @@ def main():
     near_lp = build_filter(M, fc, window=triple)
     tri_lp = build_filter(M, fc, window)
     rect_lp = build_filter(M, fc)
+    plot_fft = build_filter(ham_lp)
+    plot_fft = build_filter(black_lp, style='k')
 
     #filter the signals
     f_ham = numpy.convolve(signal, ham_lp)
