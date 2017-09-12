@@ -16,8 +16,7 @@ class Pareto_Min_Dist(Component):
                             "Must be NormalDistribution type.")
     
     predicted_values = Array(iotype="in",dtype=NormalDistribution,
-                             desc="CaseIterator which contains a NormalDistribution "
-                                  "for each response at a location where you wish to "
+                             desc="CaseIterator for each response at a location where you wish to "
                                   "calculate EI.")
     
     dist = Float(0.0, iotype="out", 
