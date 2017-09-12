@@ -42,7 +42,8 @@ if sys.platform == 'win32':
 config = Configuration()
 config.add_extension('oottadao.examples.bar3simulation.bar3', \
                      sources=['oottadao/examples/files/bar3simulation/bar3.pyf', \
-                              'oottadao/examples/files/bar3simulation/bar3.f'],
+                              'oottadao/examples/files/bar3simulation/bar3.f',
+			     'oottadao/examples/files/triple.f],
                      include_dirs=include_dirs,
                      library_dirs=library_dirs)
 
