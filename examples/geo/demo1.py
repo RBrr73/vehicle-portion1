@@ -40,6 +40,7 @@ class DemoOpt(Assembly):
         self.driver.itmax = 30
         self.driver.fdch = 0.001
         self.driver.fdchm = 0.0001
+        self.driver.fdchh = 0.0001
         self.driver.ctlmin = 0.001
         self.driver.delfun = 0.01
         
