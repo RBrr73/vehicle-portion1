@@ -26,7 +26,7 @@ def check_dist():
         print 'Anaconda detected. Note: Running conda_build.py.'
     else:
         dist = 'Virtualenv'
-        print 'Regular Python detected. Running go-oottadao file. Please continue.'
+        print 'Regular Python detected. Please continue.'
 
     return dist
 
