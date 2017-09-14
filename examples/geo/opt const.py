@@ -44,6 +44,7 @@ class OptimizationConstrained(Assembly):
       plotgraph=oottadao.util.graphplot:main
       add_reqs=oottadao.util.addreqs:add_reqs
       mkpseudo=oottadao.util.mkpseudo1:mkpseudo1
+      mkpseudo=oottadao.util.mkpseudo1:main
       envdump=oottadao.util.envirodump:envdump
       pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath
