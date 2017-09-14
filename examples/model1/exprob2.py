@@ -76,6 +76,7 @@ class Simulation(Assembly):
         self.add("meta_model", MultiFiMetaModel(params=('x', ), 
                                                 responses=('f_x', ), nfi=self.nfi)) 
         self.meta_model.default_surrogate = self.surrogate
+        self.connect('hifi_cases.x'  , 'meta_model.params.x, f_x')
         self.connect('hifi_cases.x'  , 'meta_model.params.x')
         self.connect('hifi_cases.f_x', 'meta_model.responses.f_x')
         if self.nfi > 1:
