@@ -62,7 +62,7 @@ class SimAcceleration(Driver):
     
     implements(IHasParameters, IHasObjectives)
     
-    end_speed = Float(60.0, iotype='in', units='mi/h',
+    end_speed = Float(65.0, iotype='in', units='mi/h',
                       desc='Simulation interim speed')
     timestep = Float(0.1, iotype='in', units='s', 
                      desc='Simulation interim time step size')
