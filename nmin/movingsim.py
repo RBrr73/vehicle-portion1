@@ -285,7 +285,7 @@ class SimEconomy(Driver):
             
             # If engine cannot accelerate quickly enough to match profile, 
             # then raise exception    
-            if command_accel > accel_max:
+            if command_accel >= accel_max:
                 self.raise_exception("Vehicle is unable to achieve " \
                 "acceleration required to match EPA driving profile.", 
                                                 RuntimeError)
