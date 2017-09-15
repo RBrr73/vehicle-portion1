@@ -32,7 +32,7 @@ def main():
    unlock -- unlock repository
    set    -- set this as current repository
              (sets oottaDAO_REPO environment variable and starts a new shell)
-   fix    -- fix permissions and remove generated directories
+   fix    -- fix permissions
    rmpyc  -- remove 'orphan' .pyc files"""
 
     parser = optparse.OptionParser(usage)
