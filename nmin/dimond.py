@@ -16,8 +16,7 @@ class Pareto_Min_Dist(Component):
                             "Must be NormalDistribution type.")
     
     predicted_values = Array(iotype="in",dtype=NormalDistribution,
-                             desc="CaseIterator which contains a NormalDistribution "
-                                  "for each response at a location where you wish to "
+                             desc="CaseIterator for each response at a location where you wish to "
                                   "calculate EI.")
     
     dist = Float(0.0, iotype="out", 
@@ -63,7 +62,7 @@ class Pareto_Min_Dist(Component):
         dists = []
         
         for y in y_star_other:
-            d = sqrt(sum([(A-B)**2 for A,B in zip(p,y)]))
+            d = sqrt(sum([(B-A)**2 for A,B in zip(p,y)]))
             y_star_other.append(d)
             dists.append(d)
           

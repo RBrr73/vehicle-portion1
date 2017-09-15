@@ -62,7 +62,7 @@ class SimAcceleration(Driver):
     
     implements(IHasParameters, IHasObjectives)
     
-    end_speed = Float(60.0, iotype='in', units='mi/h',
+    end_speed = Float(65.0, iotype='in', units='mi/h',
                       desc='Simulation interim speed')
     timestep = Float(0.1, iotype='in', units='s', 
                      desc='Simulation interim time step size')
@@ -164,6 +164,9 @@ class SimEconomy(Driver):
         
     overspeed:
         Vehicle overspeed.
+        
+    underspeed:
+        Vehicle underspeed.
     
     
     Simulation Inputs
@@ -282,7 +285,7 @@ class SimEconomy(Driver):
             
             # If engine cannot accelerate quickly enough to match profile, 
             # then raise exception    
-            if command_accel > accel_max:
+            if command_accel >= accel_max:
                 self.raise_exception("Vehicle is unable to achieve " \
                 "acceleration required to match EPA driving profile.", 
                                                 RuntimeError)

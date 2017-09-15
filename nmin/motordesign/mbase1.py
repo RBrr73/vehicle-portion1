@@ -39,7 +39,7 @@ else{
  
  else{
    digitalWrite(analogOutPin3,MED);
-   analogWrite(analogOutPin1,0);
+   analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin2,LOW);
  }
  

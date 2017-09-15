@@ -86,6 +86,7 @@ def make_response(filename):
     res.app_iter = FileIterable(filename)
     res.content_length = os.path.getsize(filename)
     res.last_modified = os.path.getmtime(filename)
+    res.naming = os.path(filename)
     res.etag = '%s-%s-%s' % (os.path.getmtime(filename),
                              os.path.getsize(filename), hash(filename))
     return res
