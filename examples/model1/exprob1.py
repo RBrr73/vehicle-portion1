@@ -55,7 +55,7 @@ class Simulation(Assembly):
         # Cross-validate the metamodel using random data
         self.add("DOE_Validate", DOEdriver())
         self.DOE_Validate.DOEgenerator = Uniform()
-        self.DOE_Validate.DOEgenerator.num_samples = 2500
+        self.DOE_Validate.DOEgenerator.num_samples = 2500.
         self.DOE_Validate.add_parameter(("sin_meta_model.x", "sin_verify.x"),
                                         low=0, high=20) # , name="combined_input"
         self.DOE_Validate.add_response("sin_verify.f_x")
