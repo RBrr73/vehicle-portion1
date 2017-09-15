@@ -6,7 +6,7 @@ from oottadao.lib.components.api import MetaModel
 from oottadao.lib.doegenerators.api import FullFactorial, Uniform
 from oottadao.lib.drivers.api import DOEdriver
 from oottadao.lib.surrogatemodels.api import FloatKrigingSurrogate
-from oottadao.main.api import Assembly, Component, set_as_top
+from oottadao.main.api import Assembly, Component, set_as_top, Model
 from oottadao.main.datatypes.api import Float
 
 
