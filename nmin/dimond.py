@@ -62,7 +62,7 @@ class Pareto_Min_Dist(Component):
         dists = []
         
         for y in y_star_other:
-            d = sqrt(sum([(A-B)**2 for A,B in zip(p,y)]))
+            d = sqrt(sum([(B-A)**2 for A,B in zip(p,y)]))
             y_star_other.append(d)
             dists.append(d)
           
