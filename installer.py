@@ -11,7 +11,7 @@ def check_version():
     if sys.version_info < (2, 7) or sys.version_info > (3, 0):
         print'ERROR: {0}'.format(sys.exc_info()[1])
         print'ERROR: you have Python {0}.{1}.{2} installed'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
-        print'ERROR: this script requires Python greater than 2.7 and less than 3.0.'
+        print'ERROR: this script requires Python greater than 2.7 and less than 3.2.'
         sys.exit(101)
 
     else:
