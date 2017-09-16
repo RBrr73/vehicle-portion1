@@ -23,7 +23,7 @@ setup(name='oottadao.util',
       keywords='',
       author='',
       author_email='',
-      url='http://oottadao.org',
+      url='http://oottadao.org/home',
       license='Apache License, Version 2.0',
       namespace_packages=["oottadao"],
 
