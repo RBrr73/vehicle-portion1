@@ -96,6 +96,20 @@ class SimAcceleration(Driver):
             acceleration = objectives['acceleration'].evaluate(self.parent)
             overspeed = objectives['overspeed'].evaluate(self.parent)
             
+                        # If RPM goes over MAX RPM, shift gears
+            # (i.e.: shift at redline or just before)
+            if overspeed:
+                gear += 1
+                self.set_parameter_by_name('gear', gear)
+                self.run_iteration()
+                acceleration = objectives['acceleration'].evaluate(self.parent)
+                overspeed = objectives['overspeed'].evaluate(self.parent)
+                
+                if overspeed:
+                    self.raise_exception("Gearing problem in Accel test.", 
+                                             RuntimeError)
+            
+            
             # If the next gear can produce more torque, let's shift.
             if gear < 5:
                 self.set_parameter_by_name('gear', gear+1)
@@ -108,18 +122,7 @@ class SimAcceleration(Driver):
                     overspeed = objectives['overspeed'].evaluate(self.parent)
                 
             
-            # If RPM goes over MAX RPM, shift gears
-            # (i.e.: shift at redline or just before)
-            if overspeed:
-                gear += 1
-                self.set_parameter_by_name('gear', gear)
-                self.run_iteration()
-                acceleration = objectives['acceleration'].evaluate(self.parent)
-                overspeed = objectives['overspeed'].evaluate(self.parent)
-                
-                if overspeed:
-                    self.raise_exception("Gearing problem in Accel test.", 
-                                             RuntimeError)
+
 
             acceleration = convert_units(acceleration, 'm/(s*s)', 'mi/(h*s)')
             
