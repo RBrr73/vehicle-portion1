@@ -1,5 +1,5 @@
 const int analogInPin=A0;
-const int analogOutPin1=11;
+const int analogOutPin1=13;
 const int analogOutPin2=9;
 const int analogOutPin3=10;
 
