@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Signal Processing Library documentation build configuration file, created by
-# sphinx-quickstart on Mon Jul 29 18:21:02 2013.
+# Signal Processing Library documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -28,6 +27,8 @@ sys.path.insert(0, os.path.abspath('../../'))
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'sphinx.ext.viewcode',
                 'matplotlib.sphinxext.mathmpl', 
                 'matplotlib.sphinxext.only_directives', 
+                'matplotlib.sphinxext.plot_direction', 
+                'matplotlib.sphinxext.only_calculation',               
                 'matplotlib.sphinxext.plot_directive',
                 'matplotlib.sphinxext.test_directives',
                 'matplotlib.sphinxext.point_directive',
