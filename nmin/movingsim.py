@@ -345,9 +345,9 @@ class SimEconomy(Driver):
             velocity1 = velocity2
             time1 = time2
             
-            #print "T = %f, V = %f, Acc = %f" % (time1, velocity1, 
-            #command_accel)
-            #print gear, accel_min, accel_max
+            print "T = %f, V = %f, Acc = %f" % (time1, velocity1, 
+            command_accel)
+            print gear, accel_min, accel_max
             
         # Convert liter to gallon and sec/hr to hr/hr
         distance = convert_units(distance, 'mi*s/h', 'mi')
