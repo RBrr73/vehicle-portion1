@@ -141,7 +141,7 @@ class EggServer(object):
             #       so that files that aren't distributions won't show up
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
-                lpath = os.path.join(wsgiref.request_uri(environ), f)
+                lpath = os.path.join(wsgiref.request_uri(environ), fpath)
                 out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
         out.write('</ul>\n</body>\n</html>')
         return [out.getvalue(), f]
