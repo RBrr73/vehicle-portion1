@@ -60,8 +60,8 @@ class CasesBuilder(Assembly):
 class Simulation(Assembly):
 
     def __init__(self, surrogate, nfi=1):
-        self.surrogate = surrogate
-        self.nfi = nfi
+        self.surrogate = surrogate2
+        self.nfi = nfi2
         super(Simulation, self).__init__()
     
     def configure(self):
