@@ -15,7 +15,7 @@ def check_version():
         sys.exit(101)
 
     else:
-        print  '\nACCEPTABLE PYTHON VERSION: {0}.{1}.{2} FOUND'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
+        print  '\nACCEPTABLE PYTHON VERSION: {0}.{1}.{2} FOUND'.format(sys.version_info[0], sys.version_info[2])
 
 #Find out which python (Anaconda/regular) is installed as the default Python
 def check_dist():
