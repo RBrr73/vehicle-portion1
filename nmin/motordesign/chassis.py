@@ -9,6 +9,7 @@ import time
 import RPi.GPIO as GPIO
 
 # pylint: disable-msg=E0611,F0401
+import math, time
 from oottadao.main.api import Component
 from oottadao.main.datatypes.api import Float
 
@@ -64,14 +65,13 @@ class Chassis(Component):
         
         torque = self.engine_torque*self.torque_ratio
         tire_radius = self.tire_circ/(2.0*pi)
-                       
+                
         friction = self.Cf*mass*9.8
         drag = .5*(1.225)*self.Cd*self.area*V*V
         
         mass = self.mass_vehicle + self.mass_engine
         V = self.velocity
-
-        
+       
         self.acceleration = (torque/tire_radius - friction - drag)/mass
 
 
