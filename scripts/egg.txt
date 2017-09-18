@@ -142,7 +142,7 @@ class EggServer(object):
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
                 lpath = os.path.join(wsgiref.request_uri(environ), f)
-                out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
+                out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, abspath, checksum))
         out.write('</ul>\n</body>\n</html>')
         return [out.getvalue(), f]
         
