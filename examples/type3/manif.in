@@ -1,2 +1,2 @@
 
-recursive-include source *.py *.pyf *.f *.in *.lib
+recursive-include source *.py *.pyf *.f *.in *.save *.lib 
