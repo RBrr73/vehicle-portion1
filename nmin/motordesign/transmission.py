@@ -67,7 +67,6 @@ class Transmission(Component):
         
         gear = self.current_gear
         differential = self.final_drive_ratio
-        tire_circ = self.tire_circ
         velocity = convert_units(self.velocity, 'mi/h', 'inch/min')
 
         
