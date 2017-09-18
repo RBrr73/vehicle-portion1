@@ -27,6 +27,16 @@ class SimAcceleration(Driver):
     simulation driver whose workflow should consist of a Vehicle assembly, and
     whose connections are as follows:
     
+    Simulation Inputs
+    end_speed: float
+        Ending speed for the simulation (default 65 mph)
+    
+    timestep: float
+        Simulation time step (default .01)
+        
+        
+    Outputs
+    accel_time: float
     
     Named Parameters
     velocity:
@@ -47,16 +57,7 @@ class SimAcceleration(Driver):
         Vehicle overspeed.
     
     
-    Simulation Inputs
-    end_speed: float
-        Ending speed for the simulation (default 65 mph)
-    
-    timestep: float
-        Simulation time step (default .01)
-        
-        
-    Outputs
-    accel_time: float
+
         Time to perform the acceleration test.
     """
     
