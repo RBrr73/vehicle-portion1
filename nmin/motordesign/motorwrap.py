@@ -111,11 +111,6 @@ class Engine(Component):
         else:
             self.overspeed = False
 
-        if self.RPM < 1000:
-            self.underspeed = True
-        else:
-            self.underspeed = False
-            
         # These Constants are all hard-coded for Gasoline.
         # Eventually, we'll move them to the input so that they can be tweaked.
         # (Possibly by just selecting a fuel-type)
