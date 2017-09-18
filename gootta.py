@@ -69,7 +69,7 @@ else:
 
 REQUIRED_MODULES = ['os', 'posix', 'posixpath', 'nt', 'ntpath', 'genericpath',
                     'fnmatch', 'locale', 'encodings', 'codecs',
-                    'stat', 'UserDict', 'readline', 'copy_reg', 'types',
+                    'stat', 'UserDict', 
                     're', 'sre', 'sre_parse', 'sre_constants', 'sre_compile',
                     'zlib', 'test_suite']
 
@@ -163,6 +163,7 @@ elif majver == 3:
             #"json",
             #"lib2to3",
             #"logging",
+            #"max",
             #"macpath",
             #"macurl2path",
             #"mailbox",
@@ -232,6 +233,7 @@ elif majver == 3:
             #"token",
             #"traceback",
             #"trace",
+            #"triple",
             #"tty",
             #"turtledemo",
             #"turtle",

@@ -45,6 +45,8 @@ Cf2py intent(in,out)  A
 Cf2py intent(in,out) S
 Cf2py intent(in,out) G1
 Cf2py intent(in,out) G2
+Cf2py intent(in,out) G3
+Cf2py intent(in,out) G4
 Cf2py intent(in,out) B
 Cf2py intent(in,out) C
 Cf2py intent(in,out)  ISC
@@ -75,6 +77,10 @@ Cf2py intent(in,out) MS1
       write(*,*) 'G1'
       write(*,'(6f10.3)') (g1(i),i=1,n2)
       write(*,*) 'G2'
+      write(*,'(6f10.3)') (g1(i),i=1,n2)
+      write(*,*) 'G3'
+      write(*,'(6f10.3)') (g1(i),i=1,n2)
+      write(*,*) 'G4'
       write(*,'(6f10.3)') (g2(i),i=1,n2)
       write(*,*) 'B'
       write(*,'(6f10.3)') (g3(i),i=1,n2)
@@ -88,8 +94,6 @@ Cf2py intent(in,out) MS1
       write(*,*) 'C'
       write(*,'(6f10.3)') (c(i),i=1,n4)
       write(*,*) 'ISC'
-      write(*,'(20i4)') (isc(i),i=1,n2)
-      write(*,*) 'IC'
       write(*,'(20i4)') (ic(i),i=1,n3)
       write(*,*) 'MS1'
       write(*,'(20i4)') (MS1(i),i=1,n5)
@@ -106,6 +110,8 @@ c     enddo
 C     CONSTANTS.
       NDV1=NDV+1
       NDV2=NDV+2
+      NDV3=NDV+3
+      NDV4=NDV+4
       IF (IGOTO.EQ.0) GO TO 40
 C     ------------------------------------------------------------------
 C                     CHECK FOR UNBOUNDED SOLUTION

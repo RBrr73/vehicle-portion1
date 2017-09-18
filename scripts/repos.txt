@@ -32,7 +32,7 @@ def main():
    unlock -- unlock repository
    set    -- set this as current repository
              (sets oottaDAO_REPO environment variable and starts a new shell)
-   fix    -- fix permissions and remove generated directories
+   fix    -- fix permissions
    rmpyc  -- remove 'orphan' .pyc files"""
 
     parser = optparse.OptionParser(usage)
@@ -70,7 +70,7 @@ def main():
     if operation == 'check':
         do_check(path)
     elif operation == 'lock':
-        do_lock(path)
+        do_lock(path, this_user)
     elif operation == 'unlock':
         do_unlock(path, this_user)
     elif operation == 'set':
@@ -124,7 +124,7 @@ def do_unlock(path, options):
 def do_set(path, user):
     """ Perform 'set' operation. """
     if find_repository(os.getcwd(), user) != path:
-        print 'Moving to', path
+        print 'Moving to', path 'at', mtime
         os.chdir(path)
     os.environ['oottaDAO_REPO'] = path
     os.environ['PATH'] = os.path.join(path, 'buildout', 'bin') \
@@ -141,8 +141,7 @@ def do_fix(repo_path, options):
         'buildout/bin',
         'buildout/develop-eggs',
         'buildout/eggs',
-        'buildout/html',
-        'buildout/parts',
+        'buildout/set',
         'docs/_build',
     )
     files = (

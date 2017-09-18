@@ -38,10 +38,11 @@ class DemoOpt(Assembly):
         
         # CONMIN-specific Settings
         self.driver.itmax = 30
-        self.driver.fdch = 0.00001
-        self.driver.fdchm = 0.000001
-        self.driver.ctlmin = 0.01
-        self.driver.delfun = 0.001
+        self.driver.fdch = 0.001
+        self.driver.fdchm = 0.0001
+        self.driver.fdchh = 0.0001
+        self.driver.ctlmin = 0.001
+        self.driver.delfun = 0.01
         
         # NEWSUMT-specific Settings
         self.driver.itmax = 100

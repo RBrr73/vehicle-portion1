@@ -8,6 +8,7 @@
 # This version of the component wraps the C implementation of the model
 
 from math import pi
+import time
 
 # pylint: disable-msg=E0611,F0401
 from oottadao.main.api import Component
@@ -95,7 +96,7 @@ class Engine(Component):
     overspeed = Bool(False, iotype='out', desc='True if the engine RPM '
                             'exceeds its maximum allowable RPM.')
     underspeed = Bool(False, iotype='out', desc='True if the engine RPM '
-                            'exceeds its minimum allowable RPM.')
+                            'does not hit minimum allowable RPM.')
 
 
     def execute(self):
@@ -176,7 +177,7 @@ if __name__ == "__main__": # pragma: no cover
     
     MyEngine = Engine("Testing")
     
-    import time
+    
     start_time = time.time()
     
     for jj in xrange(1, 50):
@@ -190,3 +191,4 @@ if __name__ == "__main__": # pragma: no cover
     print 'Engine Weight: ', MyEngine.engine_weight
     print '-----------------------------'    
     print "Elapsed time: ", time.time()-start_time, 'seconds'
+    

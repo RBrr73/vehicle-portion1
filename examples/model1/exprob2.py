@@ -49,7 +49,8 @@ class CasesBuilder(Assembly):
         
         self.driver.workflow.add('model')
         self.driver.add_parameter("model.x", low=0, high=1)
-        self.driver.add_response("model.f_x")
+        self.driver.add_response("model.f_x")        
+        self.driver.add_response("model.sigma_x")
         self.driver.case_inputs.model.x = self.cases 
         
         self.create_passthrough('driver.case_inputs.model.x')
@@ -59,14 +60,14 @@ class CasesBuilder(Assembly):
 class Simulation(Assembly):
 
     def __init__(self, surrogate, nfi=1):
-        self.surrogate = surrogate
-        self.nfi = nfi
+        self.surrogate = surrogate2
+        self.nfi = nfi2
         super(Simulation, self).__init__()
     
     def configure(self):
         
         # Expensive and Cheap DOE (note: have to be nested)
-        doe_e = [0.0, 0.4, 0.6, 1.0]
+        doe_e = [0.0, 0.4, 0.6, 1.0, 1.8, 2.8]
         doe_c = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 0.9] + doe_e 
         self.add('hifi_cases', CasesBuilder(HighFidelityModel(), doe_e))
         self.add('lofi_cases', CasesBuilder(LowFidelityModel(), doe_c))
@@ -75,8 +76,8 @@ class Simulation(Assembly):
         self.add("meta_model", MultiFiMetaModel(params=('x', ), 
                                                 responses=('f_x', ), nfi=self.nfi)) 
         self.meta_model.default_surrogate = self.surrogate
+        self.connect('hifi_cases.x'  , 'meta_model.params.x, f_x')
         self.connect('hifi_cases.x'  , 'meta_model.params.x')
-        self.connect('hifi_cases.re_x'  , 'none')
         self.connect('hifi_cases.f_x', 'meta_model.responses.f_x')
         if self.nfi > 1:
             self.connect('lofi_cases.x'  , 'meta_model.params.x_fi2')
@@ -89,6 +90,7 @@ class Simulation(Assembly):
         self.mm_checker.add_parameter("meta_model.x", low=0, high=1)
         self.mm_checker.add_parameter("model.x", low=0, high=1)
         self.mm_checker.add_response("model.f_x")
+        self.mm_checker.add_response("doe_c")
         self.mm_checker.add_response("meta_model.f_x")
         ngrid = 100
         self.mm_checker.case_inputs.meta_model.x = np.linspace(0,1,ngrid)
@@ -134,7 +136,7 @@ if __name__ == "__main__":
     plt.plot(check, predicted_cok + 2*sigma_cok, 'g', alpha=0.5, label='I95%')
     plt.plot(check, predicted_cok - 2*sigma_cok, 'g', alpha=0.5)
     plt.fill_between(check, predicted_cok + 2*sigma_cok,
-                            predicted_cok - 2*sigma_cok, facecolor='g', alpha=0.2)
+                            predicted_cok - 2*sigma_cok, facecolor='r', alpha=0.2)
     plt.plot(check, predicted_k, 'b', label='Krigring')
     plt.plot(check, predicted_k + 2*sigma_k, 'b', alpha=0.5, label='I95%')
     plt.plot(check, predicted_k - 2*sigma_k, 'b', alpha=0.5)

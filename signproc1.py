@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Signal Processing Library documentation build configuration file, created by
-# sphinx-quickstart on Mon Jul 29 18:21:02 2013.
+# Signal Processing Library documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -28,7 +27,11 @@ sys.path.insert(0, os.path.abspath('../../'))
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'sphinx.ext.viewcode',
                 'matplotlib.sphinxext.mathmpl', 
                 'matplotlib.sphinxext.only_directives', 
+                'matplotlib.sphinxext.plot_direction', 
+                'matplotlib.sphinxext.only_calculation',               
                 'matplotlib.sphinxext.plot_directive',
+                'matplotlib.sphinxext.test_directives',
+                'matplotlib.sphinxext.point_directive',
                 'matplotlib.sphinxext.plot_calculation',
                 'matplotlib.sphinxext.plot_direction']
 
@@ -69,17 +72,17 @@ release = '1.0'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+#exclude_patterns = []
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
-#add_function_parentheses = True
+add_function_parentheses = True
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
-#add_module_names = True
+add_module_names = False
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
@@ -204,7 +207,7 @@ latex_documents = [
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-#latex_use_parts = False
+latex_use_parts = False
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False

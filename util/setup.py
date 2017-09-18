@@ -23,7 +23,7 @@ setup(name='oottadao.util',
       keywords='',
       author='',
       author_email='',
-      url='http://oottadao.org',
+      url='http://oottadao.org/home',
       license='Apache License, Version 2.0',
       namespace_packages=["oottadao"],
 
@@ -32,11 +32,12 @@ setup(name='oottadao.util',
           'oottadao.util.test': ['src/doubler.py']
       },
       test_suite='nose.collector',
-      zip_safe=False,
+      zip_safe=True,
       install_requires=[
           'setuptools',
           'pycrypto==2.3',
           'pyparsing',
+          'zipapply',
           'Traits==4.3.0',
           #'PyYAML==3.09',
       ],
@@ -45,14 +46,12 @@ setup(name='oottadao.util',
       xyplot=oottadao.util.casedb:cmdlineXYplot
       plotgraph=oottadao.util.graphplot:main
       dotgraph=oottadao.util.dotgraph:main
+      bargraph=oottadao.util.bargraph:main
       plotgraph=oottadao.util.plotgraph:main
-      add_reqs=oottadao.util.addreqs:add_reqs
-      add_reqs=oottadao.util.addreqs:mit
       add_reqs=oottadao.util.addreqs:main
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
-      pottodump=pottodao.util.dep:main
+      pottodump=pottodao.util.dep:mkpseudo
       envdump=oottadao.util.envirodump:envdump
-      pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath
       combine_paths=oottadao.util.lib:combine_paths
       """
@@ -63,7 +62,7 @@ kwds = {'install_requires':['numpy'],
         'zip_safe': False,
         'edit_time': True
         'license': 'public domain',
-        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=1086',
+        'url': 'http://www.scilab.org/contrib/index_contrib.php?page=displayContribution&fileID=8562',
         'package_data': {'oottadao.main': ['*.html']},
         
         def install(dist):

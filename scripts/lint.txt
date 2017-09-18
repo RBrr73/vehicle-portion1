@@ -47,7 +47,10 @@ def main():
             os.path.join(root, 'oottadao.devtools'),
             os.path.join(root, 'oottadao.test'),
             os.path.join(root, 'oottadao.util'),
+            os.path.join(root, 'oottadao.files'),
             os.path.join(root, 'contrib'),
+            os.path.join(root, 'flash'),
+            os.path.join(root, 'inter'),
             os.path.join(root, 'examples'),
             os.path.join(root, 'scripts'),
             os.path.join(root, 'testplugins'),
@@ -88,7 +91,7 @@ def process(python, pylint, dirpath, filename, update):
     args += ' %s' % filename
 
     # Run pylint.
-    status = os.system('%s %s %s' % (python, pylint, args))
+    status = os.system('%s %s %s %s' % (python, pylint, args))
 # status unreliable since using buildout/bin/pylint.
 #    if status:
 #        print >> sys.stderr, '    pylint returned', status
@@ -104,6 +107,7 @@ def process(python, pylint, dirpath, filename, update):
         inp.close()
         print >> sys.stderr, '   ',
         os.remove(glbl)
+
 
     # Compare against previous output.
     directory = 'pylint'

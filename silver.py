@@ -106,6 +106,8 @@ def main(nbits):
         pylab.subplot(2,2,4)
         pylab.title('Crosscorrelation g[2] g[2] g[4]')
         pylab.subplot(2,2,3)
+        pylab.xlim(0, len(gm1))
+        pylab.xlim(0, len(g0))           
         pylab.title('Crosscorrelation g[0] g[1]') 
         pylab.subplot(2,2,2)
         pylab.plot((numpy.roll(filter.ccorr(gm1, gm1).real, len(gm1)/2-1)))

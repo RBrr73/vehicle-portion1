@@ -41,7 +41,7 @@ def make_download_index(url):
     out.write('  <link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" />\n')
     out.write('  <link rel="stylesheet" href="/chrome/tracfullblog/css/fullblog.css" type="text/css" />\n')
     out.write('  <div id="header">\n')
-    out.write('    <a id="logo" href="%s/">\n' % url)
+    out.write('    <a id="largelogo" href="%s/">\n' % url)
     out.write('      <img src="/chrome/site/Feb2010_oottaLogo.png" alt="ootta Logo" height="93" width="334" />\n')
     out.write('    </a>\n')
     out.write('  </div>\n')
@@ -66,6 +66,7 @@ def make_download_index(url):
     # This section is meant to display everything in the misc folder at this level. 
     miscdir=os.path.join(startdir,'misc')
     out.write('\n<h1>Miscellaneous Downloads</h1>\n')
+    out.write('\n<h1>File List</h1>\n')
     files = os.listdir(miscdir)
     if len(files): out.write('  <ul>\n')
     for f in files:
@@ -77,13 +78,16 @@ def make_download_index(url):
         create_date = time.localtime(stats[9])
         create_date1 = time.localtime(stats[8])
         create_date2 = time.localtime(stats[7])
+        create_date3 = time.localtime(stats[6])
         #print "times "+ time.localtime(stats[9]) + " " + time.localtime(stats[8]) + " " + time.localtime(stats[7]) 
-        #dir_date = time.strftime("%m/%d/%y %H:%M:%S", create_date)
-        #dir_date1 = time.strftime("%m/%d/%y %H:%M:%S", create_date1)
-        #dir_date2 = time.strftime("%m/%d/%y %H:%M:%S", create_date2)
+        #dir_date = time.strftime("%m/%d/%y %H:%M:%S", create_date1)
+        #dir_date1 = time.strftime("%m/%d/%y %H:%M:%S", create_date2)
+        #dir_date2 = time.strftime("%m/%d/%y %H:%M:%S", create_date)
         #print "\n 1.  " + dir_date
         #print "\n 2.  " + dir_date1
         #print "\n 3.  " + dir_date2
+        #print time.localtime(stats[9])
+        #print base_f
         out.write('     <li><a href="%s">%s</a>&nbsp&nbsp&nbsp&nbsp %s(CST)\n'%(linkpath, base_f, dir_date))
     if len(dirs): out.write('  </ul>\n')
     #END MISC SECTION

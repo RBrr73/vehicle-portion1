@@ -16,8 +16,7 @@ class Pareto_Min_Dist(Component):
                             "Must be NormalDistribution type.")
     
     predicted_values = Array(iotype="in",dtype=NormalDistribution,
-                             desc="CaseIterator which contains a NormalDistribution "
-                                  "for each response at a location where you wish to "
+                             desc="CaseIterator for each response at a location where you wish to "
                                   "calculate EI.")
     
     dist = Float(0.0, iotype="out", 
@@ -28,9 +27,10 @@ class Pareto_Min_Dist(Component):
     def __init__(self):
         super(Pareto_Min_Dist, self).__init__()
         self.y_star_other = None
+        dists = []
         
     def _reset_pareto_fired(self):
-        self.y_star_other = dist
+        self.y_star_other = dist + start_point
     
     def get_pareto(self):
         y_star_other = []
@@ -43,7 +43,7 @@ class Pareto_Min_Dist(Component):
                     for crit in self.criteria:
                         for each in self.collection:
                             if crit in objective[0]:
-                            #TODO: criteria needs at least two things matching
+                            #TODO: for now criteria needs at least two things matching
                             #objective names in CaseIterator outputs, error otherwise
                             c.append(objective[2])
                 if c != [] :
@@ -62,7 +62,7 @@ class Pareto_Min_Dist(Component):
         dists = []
         
         for y in y_star_other:
-            d = sqrt(sum([(A-B)**2 for A,B in zip(p,y)]))
+            d = sqrt(sum([(B-A)**2 for A,B in zip(p,y)]))
             y_star_other.append(d)
             dists.append(d)
           
@@ -75,5 +75,6 @@ class Pareto_Min_Dist(Component):
         if self.y_star_other == None:
             
             self.y_star_other = self.get_pareto()
+            y_star_other.append(mu)
         
         self.dist = self._calc_min_dist(mu,self.y_star_other)

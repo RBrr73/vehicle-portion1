@@ -16,8 +16,8 @@ class Analysis(Assembly):
 
         self.add('driver', DOEdriver())
         #There are a number of different kinds of DOE available in oottadao.lib.doegenerators
-        #self.driver.DOEgenerator = FullFactorial(10) #Full Factorial DOE with 10 levels for each variable
-        self.driver.DOEgenerator = Uniform(1000) 
+        self.driver.DOEgenerator = FullFactorial(10) #Full Factorial DOE with 10 levels for each variable
+        self.driver.DOEgenerator = Uniform(1220) 
 
         #DOEdriver will automatically record the values of any parameters for each case
         self.driver.add_parameter('paraboloid.x', low=-75, high=75)

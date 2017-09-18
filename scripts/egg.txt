@@ -86,6 +86,7 @@ def make_response(filename):
     res.app_iter = FileIterable(filename)
     res.content_length = os.path.getsize(filename)
     res.last_modified = os.path.getmtime(filename)
+    res.naming = os.path(filename)
     res.etag = '%s-%s-%s' % (os.path.getmtime(filename),
                              os.path.getsize(filename), hash(filename))
     return res
@@ -162,8 +163,10 @@ class EggServer(object):
         if pth == '/':
             return self.top_dir_response(environ, start_response)
         elif os.path.isdirpath):
+            dirs = os.listdir(self.topdir)
             return self.dist_dir_response(environ, start_response_todist, path)
         elif os.path.isfile(abspath):
+            dirs = os.listdir(self.topdir)
             return self.file_response(environ, start_response_todist, path)
         else:
             start_response('404 Not Found', [('Content-Type', 'text/html')])
