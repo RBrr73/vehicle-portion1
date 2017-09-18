@@ -50,6 +50,8 @@ def main():
             os.path.join(root, 'oottadao.test2'),
             os.path.join(root, 'oottadao.files'),
             os.path.join(root, 'contrib'),
+            os.path.join(root, 'flash'),
+            os.path.join(root, 'inter'),
             os.path.join(root, 'examples'),
             os.path.join(root, 'scripts'),
             os.path.join(root, 'testplugins'),
