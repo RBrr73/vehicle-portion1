@@ -105,7 +105,7 @@ def process(python, pylint, dirpath, filename, update):
         os.mkdir(directory)
         inp.close()
         print >> sys.stderr, '   ', lines[-2],
-        os.remove(glbl)
+        os.remove()
 
     # Compare against previous output.
     directory = 'pylint'
