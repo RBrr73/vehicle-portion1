@@ -40,7 +40,7 @@ else{
  else{
    digitalWrite(analogOutPin3,MED);
    analogWrite(analogOutPin1,mag);
-   digitalWrite(analogOutPin2,LOW);
+   digitalWrite(analogOutPin2,HIGH);
  }
  
  Serial.print(val);
