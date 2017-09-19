@@ -49,7 +49,8 @@ class CasesBuilder(Assembly):
         
         self.driver.workflow.add('model')
         self.driver.add_parameter("model.x", low=0, high=1)
-        self.driver.add_response("model.f_x")        
+        self.driver.add_response("model.f_x")     
+        self.driver.add_response("model.x")
         self.driver.add_response("model.sigma_x")
         self.driver.case_inputs.model.x = self.cases 
         
