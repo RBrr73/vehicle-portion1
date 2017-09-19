@@ -23,7 +23,7 @@ setup(name='oottadao.util',
       keywords='',
       author='',
       author_email='',
-      url='http://oottadao.org',
+      url='http://oottadao.org/home',
       license='Apache License, Version 2.0',
       namespace_packages=["oottadao"],
 
@@ -50,7 +50,7 @@ setup(name='oottadao.util',
       plotgraph=oottadao.util.plotgraph:main
       add_reqs=oottadao.util.addreqs:main
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
-      pottodump=pottodao.util.dep:main
+      pottodump=pottodao.util.dep:mkpseudo
       envdump=oottadao.util.envirodump:envdump
       update_libpath=oottadao.util.lib:update_libpath
       combine_paths=oottadao.util.lib:combine_paths

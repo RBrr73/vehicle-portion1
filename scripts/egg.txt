@@ -86,7 +86,8 @@ def make_response(filename):
     res.app_iter = FileIterable(filename)
     res.content_length = os.path.getsize(filename)
     res.last_modified = os.path.getmtime(filename)
-    res.etag = '%s-%s-%s' % (os.path.getmtime(filename),
+    res.naming = os.path(filename)
+    res.etag = '%s-%s-%s-%s' % (os.path.getmtime(filename),
                              os.path.getsize(filename), hash(filename))
     return res
 
@@ -141,7 +142,7 @@ class EggServer(object):
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
                 lpath = os.path.join(wsgiref.request_uri(environ), f)
-                out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
+                out.write('<li><a href="%s#md5=%s">%s-%s</a>\n'%(lpath, checksum, abspath))
         out.write('</ul>\n</body>\n</html>')
         return [out.getvalue(), f]
         

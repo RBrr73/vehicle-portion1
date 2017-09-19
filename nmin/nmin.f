@@ -45,6 +45,8 @@ Cf2py intent(in,out)  A
 Cf2py intent(in,out) S
 Cf2py intent(in,out) G1
 Cf2py intent(in,out) G2
+Cf2py intent(in,out) G3
+Cf2py intent(in,out) G4
 Cf2py intent(in,out) B
 Cf2py intent(in,out) C
 Cf2py intent(in,out)  ISC
@@ -75,6 +77,10 @@ Cf2py intent(in,out) MS1
       write(*,*) 'G1'
       write(*,'(6f10.3)') (g1(i),i=1,n2)
       write(*,*) 'G2'
+      write(*,'(6f10.3)') (g1(i),i=1,n2)
+      write(*,*) 'G3'
+      write(*,'(6f10.3)') (g1(i),i=1,n2)
+      write(*,*) 'G4'
       write(*,'(6f10.3)') (g2(i),i=1,n2)
       write(*,*) 'B'
       write(*,'(6f10.3)') (g3(i),i=1,n2)

@@ -6,7 +6,7 @@ from oottadao.lib.components.api import MetaModel
 from oottadao.lib.doegenerators.api import FullFactorial, Uniform
 from oottadao.lib.drivers.api import DOEdriver
 from oottadao.lib.surrogatemodels.api import FloatKrigingSurrogate
-from oottadao.main.api import Assembly, Component, set_as_top
+from oottadao.main.api import Assembly, Component, set_as_top, Model
 from oottadao.main.datatypes.api import Float
 
 
@@ -44,6 +44,7 @@ class Simulation(Assembly):
         # Training the MetaModel
         self.add("DOE_Trainer", DOEdriver())
         self.DOE_Trainer.DOEgenerator = FullFactorial()
+        self.DOE_Trainer.DOEgenerator = Uniform()
         self.DOE_Trainer.DOEgenerator.num_levels = 25
         self.DOE_Trainer.add_parameter("sin_calc.x", low=0, high=20)
         self.DOE_Trainer.add_response('sin_calc.f_x')
@@ -55,7 +56,7 @@ class Simulation(Assembly):
         # Cross-validate the metamodel using random data
         self.add("DOE_Validate", DOEdriver())
         self.DOE_Validate.DOEgenerator = Uniform()
-        self.DOE_Validate.DOEgenerator.num_samples = 100
+        self.DOE_Validate.DOEgenerator.num_samples = 2500
         self.DOE_Validate.add_parameter(("sin_meta_model.x", "sin_verify.x"),
                                         low=0, high=20) # , name="combined_input"
         self.DOE_Validate.add_response("sin_verify.f_x")

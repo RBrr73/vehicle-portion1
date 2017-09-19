@@ -27,6 +27,16 @@ class SimAcceleration(Driver):
     simulation driver whose workflow should consist of a Vehicle assembly, and
     whose connections are as follows:
     
+    Simulation Inputs
+    end_speed: float
+        Ending speed for the simulation (default 65 mph)
+    
+    timestep: float
+        Simulation time step (default .01)
+        
+        
+    Outputs
+    accel_time: float
     
     Named Parameters
     velocity:
@@ -47,22 +57,13 @@ class SimAcceleration(Driver):
         Vehicle overspeed.
     
     
-    Simulation Inputs
-    end_speed: float
-        Ending speed for the simulation (default 65 mph)
-    
-    timestep: float
-        Simulation time step (default .01)
-        
-        
-    Outputs
-    accel_time: float
+
         Time to perform the acceleration test.
     """
     
     implements(IHasParameters, IHasObjectives)
     
-    end_speed = Float(60.0, iotype='in', units='mi/h',
+    end_speed = Float(65.0, iotype='in', units='mi/h',
                       desc='Simulation interim speed')
     timestep = Float(0.1, iotype='in', units='s', 
                      desc='Simulation interim time step size')
@@ -96,6 +97,20 @@ class SimAcceleration(Driver):
             acceleration = objectives['acceleration'].evaluate(self.parent)
             overspeed = objectives['overspeed'].evaluate(self.parent)
             
+                        # If RPM goes over MAX RPM, shift gears
+            # (i.e.: shift at redline or just before)
+            if overspeed:
+                gear += 1
+                self.set_parameter_by_name('gear', gear)
+                self.run_iteration()
+                acceleration = objectives['acceleration'].evaluate(self.parent)
+                overspeed = objectives['overspeed'].evaluate(self.parent)
+                
+                if overspeed:
+                    self.raise_exception("Gearing problem in Accel test.", 
+                                             RuntimeError)
+            
+            
             # If the next gear can produce more torque, let's shift.
             if gear < 5:
                 self.set_parameter_by_name('gear', gear+1)
@@ -108,18 +123,7 @@ class SimAcceleration(Driver):
                     overspeed = objectives['overspeed'].evaluate(self.parent)
                 
             
-            # If RPM goes over MAX RPM, shift gears
-            # (i.e.: shift at redline or just before)
-            if overspeed:
-                gear += 1
-                self.set_parameter_by_name('gear', gear)
-                self.run_iteration()
-                acceleration = objectives['acceleration'].evaluate(self.parent)
-                overspeed = objectives['overspeed'].evaluate(self.parent)
-                
-                if overspeed:
-                    self.raise_exception("Gearing problem in Accel test.", 
-                                             RuntimeError)
+
 
             acceleration = convert_units(acceleration, 'm/(s*s)', 'mi/(h*s)')
             
@@ -164,6 +168,9 @@ class SimEconomy(Driver):
         
     overspeed:
         Vehicle overspeed.
+        
+    underspeed:
+        Vehicle underspeed.
     
     
     Simulation Inputs
@@ -282,7 +289,7 @@ class SimEconomy(Driver):
             
             # If engine cannot accelerate quickly enough to match profile, 
             # then raise exception    
-            if command_accel > accel_max:
+            if command_accel >= accel_max:
                 self.raise_exception("Vehicle is unable to achieve " \
                 "acceleration required to match EPA driving profile.", 
                                                 RuntimeError)
@@ -339,9 +346,9 @@ class SimEconomy(Driver):
             velocity1 = velocity2
             time1 = time2
             
-            #print "T = %f, V = %f, Acc = %f" % (time1, velocity1, 
-            #command_accel)
-            #print gear, accel_min, accel_max
+            print "T = %f, V = %f, Acc = %f" % (time1, velocity1, 
+            command_accel)
+            print gear, accel_min, accel_max
             
         # Convert liter to gallon and sec/hr to hr/hr
         distance = convert_units(distance, 'mi*s/h', 'mi')

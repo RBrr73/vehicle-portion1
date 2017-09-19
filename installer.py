@@ -11,11 +11,11 @@ def check_version():
     if sys.version_info < (2, 7) or sys.version_info > (3, 0):
         print'ERROR: {0}'.format(sys.exc_info()[1])
         print'ERROR: you have Python {0}.{1}.{2} installed'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
-        print'ERROR: this script requires Python greater than 2.7 and less than 3.0.'
+        print'ERROR: this script requires Python greater than 2.7 and less than 3.2.'
         sys.exit(101)
 
     else:
-        print  '\nACCEPTABLE PYTHON VERSION: {0}.{1}.{2} FOUND'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
+        print  '\nACCEPTABLE PYTHON VERSION: {0}.{1}.{2} FOUND'.format(sys.version_info[0], sys.version_info[2])
 
 #Find out which python (Anaconda/regular) is installed as the default Python
 def check_dist():
@@ -26,7 +26,7 @@ def check_dist():
         print 'Anaconda detected. Note: Running conda_build.py.'
     else:
         dist = 'Virtualenv'
-        print 'Regular Python detected. Running go-oottadao file. Please continue.'
+        print 'Regular Python detected. Please continue.'
 
     return dist
 
@@ -38,6 +38,8 @@ def install(dist):
         cmd.append('dev')
     elif dist == "Virtualenv":
         cmd.append('go-oottadao-dev.py')
+    else: 
+        print  '\nACCEPTABLE PYTHON VERSION: {0}.{1}.{2} FOUND'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
 
     #Pass through args in argv other than the 0th entry, which is a cmd
     for arg in sys.argv[1:]:

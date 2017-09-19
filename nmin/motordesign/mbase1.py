@@ -46,6 +46,7 @@ else{
  Serial.print(val);
  Serial.print("\t");
  Serial.println(mag);
+ Serial.println(HIGH);
  Serial.print(final_amt);
  
  delay(2);
