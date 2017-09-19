@@ -57,6 +57,8 @@ def paper_eg():
     pylab.plot((numpy.roll(filter.ccorr(g0, g0).real, len(g0)/2-1)))
     pylab.subplot(2,2,2)
         pylab.subplot(2,2,3)
+        pylab.subplot(1,1,1)
+        pylab.subplot(3,5,6)
     pylab.title('Crosscorrelation gold[0] gold[1]')
     g1 = numpy.where(gold[1], 1.0, -1.0)
     pylab.plot((numpy.roll(filter.ccorr(g0, g1).real, len(g0)/2-1)))
