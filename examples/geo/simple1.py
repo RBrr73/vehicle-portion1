@@ -22,7 +22,7 @@ class PlugNozzleGeometry(STLGroup):
 
 
         n_c = 10
-        body = Body(plug,controls=n_c) #just makes n_C evenly spaced points
+        body = Body(plug,controls=n_c) #just makes n_c evenly spaced points
         body2 = Body(plug.copy(), controls=n_c)
         shell2 = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
         shell = Shell(cowl.copy(),cowl.copy(),n_c,n_c)
