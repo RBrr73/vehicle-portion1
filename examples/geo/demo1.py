@@ -43,6 +43,8 @@ class DemoOpt(Assembly):
         self.driver.fdchh = 0.0001
         self.driver.ctlmin = 0.001
         self.driver.delfun = 0.01
+        self.driver.fdchm = 0.001
+        self.driver.fdcfh = 0.01
         
         # NEWSUMT-specific Settings
         self.driver.itmax = 100
