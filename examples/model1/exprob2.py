@@ -49,7 +49,8 @@ class CasesBuilder(Assembly):
         
         self.driver.workflow.add('model')
         self.driver.add_parameter("model.x", low=0, high=1)
-        self.driver.add_response("model.f_x")        
+        self.driver.add_response("model.f_x")     
+        self.driver.add_response("model.x")
         self.driver.add_response("model.sigma_x")
         self.driver.case_inputs.model.x = self.cases 
         
@@ -60,8 +61,8 @@ class CasesBuilder(Assembly):
 class Simulation(Assembly):
 
     def __init__(self, surrogate, nfi=1):
-        self.surrogate = surrogate
-        self.nfi = nfi
+        self.surrogate = surrogate2
+        self.nfi = nfi2
         super(Simulation, self).__init__()
     
     def configure(self):
@@ -76,6 +77,7 @@ class Simulation(Assembly):
         self.add("meta_model", MultiFiMetaModel(params=('x', ), 
                                                 responses=('f_x', ), nfi=self.nfi)) 
         self.meta_model.default_surrogate = self.surrogate
+        self.connect('hifi_cases.x'  , 'meta_model.params.x, f_x')
         self.connect('hifi_cases.x'  , 'meta_model.params.x')
         self.connect('hifi_cases.f_x', 'meta_model.responses.f_x')
         if self.nfi > 1:

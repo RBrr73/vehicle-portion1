@@ -45,8 +45,9 @@ class Simulation(Assembly):
 
         # Pass training data to the meta model.
         self.connect('DOE_Trainer.case_inputs.trig_calc.x', 'trig_meta_model.params.x')
-        self.connect('DOE_Trainer.case_outputs.trig_calc.f_x_sin', 'trig_meta_model.responses.f_x_sin')
         self.connect('DOE_Trainer.case_outputs.trig_calc.f_x_cos', 'trig_meta_model.responses.f_x_cos')
+        self.connect('DOE_Trainer.case_outputs.trig_calc.f_x_sin', 'trig_meta_model.responses.f_x_sin')
+        
 
         #MetaModel Validation
         self.add("DOE_Validate", DOEdriver())

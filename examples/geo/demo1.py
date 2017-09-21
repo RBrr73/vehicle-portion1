@@ -43,6 +43,8 @@ class DemoOpt(Assembly):
         self.driver.fdchh = 0.0001
         self.driver.ctlmin = 0.001
         self.driver.delfun = 0.01
+        self.driver.fdchm = 0.001
+        self.driver.fdcfh = 0.01
         
         # NEWSUMT-specific Settings
         self.driver.itmax = 100
@@ -50,7 +52,7 @@ class DemoOpt(Assembly):
         # COBYLA-specific Settings
         self.driver.rhobeg = 1.0
         self.driver.rhoend = 1.0e-4
-        self.driver.maxfun = 1000
+        self.driver.maxcoby = 1000
         
         # SLSQP-specific Settings
         self.driver.accuracy = 1.0e-6

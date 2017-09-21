@@ -26,19 +26,19 @@ else{
 }
   
  if(val2<-20){
-   digitalWrite(analogOutPin2,MED);
+   digitalWrite(analogOutPin2,2MED);
    analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin3,HIGH);
    digitalWrite(final_amt,mag)
  }
  else if(val2>20){
-   digitalWrite(analogOutPin3,MED);
+   digitalWrite(analogOutPin3,2MED);
    analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin2,HIGH);
  }
  
  else{
-   digitalWrite(analogOutPin3,MED);
+   digitalWrite(analogOutPin3,2MED);
    analogWrite(analogOutPin1,mag);
    digitalWrite(analogOutPin2,LOW);
  }
@@ -46,6 +46,7 @@ else{
  Serial.print(val);
  Serial.print("\t");
  Serial.println(mag);
+ Serial.println(HIGH);
  Serial.print(final_amt);
  
  delay(2);

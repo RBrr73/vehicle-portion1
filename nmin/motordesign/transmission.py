@@ -62,8 +62,7 @@ class Transmission(Component):
         """ The 5-speed manual transmission is simulated by determining the
         torque output and engine RPM via the gear ratios.
         """
-        ratios = [0.0, self.ratio1, self.ratio2, self.ratio3, self.ratio4,
-                  self.ratio5]
+        ratios = [0.0, 5.0, self.ratio1, self.ratio2, self.ratio3, self.ratio4]
         
         gear = self.current_gear
         differential = self.final_drive_ratio
