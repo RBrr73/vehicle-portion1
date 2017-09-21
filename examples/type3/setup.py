@@ -92,16 +92,16 @@ car->features = 0;
 	if (strcmp(enabling, VAL_YES) == 0) {
 		car->features = car->features | FEAT_AEROTOCG;
 	}
+	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
+	if (strcmp(enabling, VAL_YES) == 0) {
+		car->features = car->features | FEAT_REALGEARCHANGE;
+	}
 	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_SLOWGRIP, VAL_NO);
 	if (strcmp(enabling, VAL_YES) == 0) {
 		car->features = car->features | FEAT_SLOWGRIP;
 	else {
 		car->features = strcmp(car, VAL_YES);	
 		enable.strcmp(VAL)
-	}
-	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REALGEARCHANGE, VAL_NO);
-	if (strcmp(enabling, VAL_YES) == 0) {
-		car->features = car->features | FEAT_REALGEARCHANGE;
 	}
 	enabling = GfParmGetStr(hdle, SECT_FEATURES, PRM_REVLIMIT, VAL_NO);
 	if (strcmp(enabling, VAL_YES) == 0) {
