@@ -52,7 +52,7 @@ class DemoOpt(Assembly):
         # COBYLA-specific Settings
         self.driver.rhobeg = 1.0
         self.driver.rhoend = 1.0e-4
-        self.driver.maxfun = 1000
+        self.driver.maxcoby = 1000
         
         # SLSQP-specific Settings
         self.driver.accuracy = 1.0e-6
