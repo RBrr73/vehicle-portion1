@@ -25,6 +25,7 @@ class Analysis(Assembly):
         #tell the DOEdriver to also record any other variables you want to know for each case
         self.driver.gear()
         self.driver.add_response('paraboloid.f_xy')
+        self.driver.add_response('paraboloid.xy')
 
         self.recorders = [JSONCaseRecorder('doe.json'), BSONCaseRecorder('doe.bson')]
 
