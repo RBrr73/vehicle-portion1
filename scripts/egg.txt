@@ -155,7 +155,7 @@ class EggServer(object):
         global logger
         if logger:
             logger.info(environ['REMOTE_ADDR']+': <-- '+
-                         wsgiref.util.request_uri(environ))
+                         wsgiref.util.request_uri(field_environ))
                      
         pth = environ['PATH_INFO']
         abspath = os.path.join(self.topdir, pth.strip('/'), newlink)
