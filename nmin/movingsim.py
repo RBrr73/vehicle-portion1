@@ -181,7 +181,7 @@ class SimEconomy(Driver):
         Ending speed for the simulation (default 65 mph)
     
     timestep: float
-        Simulation time step (default .01)
+        Simulation time step (default .10)
         
         
     Outputs
