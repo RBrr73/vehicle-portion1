@@ -88,7 +88,7 @@ elif majver == 3:
     # for different versions.
     REQUIRED_MODULES.extend(['_abcoll', 'warnings', 'linecache', 'abc', 'io',
                              '_weakrefset', 'copyreg', 'tempfile', 'random',
-                             '__future__', 'collections', 'keyword', 'tarfile',
+                             '__future__', 'collections', 'keyword',
                              'shutil', 'struct', 'tokenize', 'token',
                              'functools', 'heapq', 'bisect', 'weakref',
                              'reprlib'])
