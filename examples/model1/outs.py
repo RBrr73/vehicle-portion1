@@ -1,5 +1,5 @@
 from oottadao.main.api import Assembly, Component, set_as_top
-from math import sin, cos
+from math import sin, cos, calc
 
 from oottadao.main.datatypes.api import Float
 from oottadao.lib.drivers.api import DOEdriver
