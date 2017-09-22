@@ -46,7 +46,7 @@ class Simulation(Assembly):
         self.DOE_Trainer.DOEgenerator = FullFactorial()
         self.DOE_Trainer.DOEgenerator = Uniform()
         self.DOE_Trainer.DOEgenerator.num_levels = 25
-        self.DOE_Trainer.add_parameter("sin_calc.x", low=0, high=20)
+        self.DOE_Trainer.add_parameter("sin_calc.x", low=10, high=20)
         self.DOE_Trainer.add_response('sin_calc.f_x')
 
         # Pass training data to the meta model.
