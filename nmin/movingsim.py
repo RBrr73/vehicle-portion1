@@ -178,7 +178,7 @@ class SimEconomy(Driver):
         Name of the file that contains profile (csv format)
         
     end_speed: float
-        Ending speed for the simulation (default 65 mph)
+        Ending speed for the simulation (default 55 mph)
     
     timestep: float
         Simulation time step (default .01)
