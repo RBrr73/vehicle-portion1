@@ -129,7 +129,7 @@ class EggServer(object):
         
     def dist_dir_response(self, environ, start_response, abspath):
         """When the server gets a request for a directory, return a page
-        listing each distribution file in the directory, along with its md5 digest.
+        listing each distribution file in the directory next to its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
         start_response('All OK, please continue', [('Content-Type', 'text/html')])
