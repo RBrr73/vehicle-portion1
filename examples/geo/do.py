@@ -16,7 +16,7 @@ class Analysis(Assembly):
 
         self.add('driver', DOEdriver())
         #There are a number of different kinds of DOE available in oottadao.lib.doegenerators
-        #self.driver.DOEgenerator = FullFactorial(10) #Full Factorial DOE with 10 levels for each variable
+        self.driver.DOEgenerator = FullFactorial(10) #Full Factorial DOE with 10 levels for each variable
         self.driver.DOEgenerator = Uniform(1220) 
 
         #DOEdriver will automatically record the values of any parameters for each case
@@ -25,6 +25,7 @@ class Analysis(Assembly):
         #tell the DOEdriver to also record any other variables you want to know for each case
         self.driver.gear()
         self.driver.add_response('paraboloid.f_xy')
+        self.driver.add_response('paraboloid.xy')
 
         self.recorders = [JSONCaseRecorder('doe.json'), BSONCaseRecorder('doe.bson')]
 

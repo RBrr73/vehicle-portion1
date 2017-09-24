@@ -28,12 +28,16 @@ def make_index():
     
     out.write('  <div id="header">\n')
     out.write('    <a id="logo" href="http://ootta.org/">\n')
-    out.write('      <img src="/chrome/site/Feb2010_oottaLogo.png" alt="ootta Logo" height="93" width="334" />\n')
+    out.write('      <img src="/chrome/site/Sept2017_oottaLogo.png" alt="ootta Logo" height="93" width="334" />\n')
     out.write('    </a>\n, <body>\n')
     out.write('    </div>\n')
     out.write('    </head>\n\n')
     out.write('    </div>\n')
     out.write('  <br><br><br>\n')
+    out.write('  <div id="header">\n')
+    out.write('    <a id="logo" href="http://ootta.org/">\n')
+    out.write('      <img src="/chrome/site/carlogo.png" alt="ootta Logo" height="30" width="150" />\n')
+    out.write('    </a>\n,
     out.write('    </div>\n')
     out.write('    </head>\n\n')
     out.write('    <body>\n, </div>\n')
@@ -42,7 +46,7 @@ def make_index():
     out.write('    ootta Version %s Downloads\n' % version)
     out.write('  </h1>\n, <ul>, <ul>, </div>\n')
     out.write('  <ul>\n')
-    out.write('    <li><a href="..">..</a>\n')
+    out.write('    <li><a href="http://ootta.org">ootta.org</a>\n')
 
     files = []
     dirs = []

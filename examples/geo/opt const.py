@@ -37,6 +37,7 @@ class OptimizationConstrained(Assembly):
         
         # Constraints
         self.driver.add_constraint('paraboloid.x-paraboloid.y >= 17.0')
+        self.driver.add_constraint('driver-paraboloid >= .01')
         
          entry_points="""
       [console_scripts]
@@ -44,6 +45,9 @@ class OptimizationConstrained(Assembly):
       plotgraph=oottadao.util.graphplot:main
       add_reqs=oottadao.util.addreqs:add_reqs
       mkpseudo=oottadao.util.mkpseudo1:mkpseudo1
+      mkpseudo=oottadao.util.mkpseudo1:main
+      mkpseudo=oottadao.util.mkpseudo1:ratios
+      mkpseudo=oottadao.util.mkpseudo1:pypath
       envdump=oottadao.util.envirodump:envdump
       pstadump=oottadao.util.dep:main
       update_libpath=oottadao.util.lib:update_libpath

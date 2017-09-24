@@ -86,7 +86,8 @@ def make_response(filename):
     res.app_iter = FileIterable(filename)
     res.content_length = os.path.getsize(filename)
     res.last_modified = os.path.getmtime(filename)
-    res.etag = '%s-%s-%s' % (os.path.getmtime(filename),
+    res.naming = os.path(filename)
+    res.etag = '%s-%s-%s-%s' % (os.path.getmtime(filename),
                              os.path.getsize(filename), hash(filename))
     return res
 
@@ -128,7 +129,7 @@ class EggServer(object):
         
     def dist_dir_response(self, environ, start_response, abspath):
         """When the server gets a request for a directory, return a page
-        listing each distribution file in the directory, along with its md5 digest.
+        listing each distribution file in the directory next to its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
         start_response('All OK, please continue', [('Content-Type', 'text/html')])
@@ -141,7 +142,7 @@ class EggServer(object):
             if os.path.isfile(fpath):
                 checksum = file_md5(fpath)
                 lpath = os.path.join(wsgiref.request_uri(environ), f)
-                out.write('<li><a href="%s#md5=%s">%s</a>\n'%(lpath, checksum, abspath))
+                out.write('<li><a href="%s#md5=%s">%s-%s</a>\n'%(lpath, checksum, abspath))
         out.write('</ul>\n</body>\n</html>')
         return [out.getvalue(), f]
         

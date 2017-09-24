@@ -39,7 +39,7 @@ class Transmission(Component):
                    desc='Gear ratio in Second Gear')
     ratio3 = Float(1.40, iotype='in', 
                    desc='Gear ratio in Third Gear')
-    ratio4 = Float(1.00, iotype='in', 
+    ratio4 = Float(0.95, iotype='in', 
                    desc='Gear ratio in Fourth Gear')
     ratio5 = Float(0.70, iotype='in', 
                    desc='Gear ratio in Fifth Gear')
@@ -62,12 +62,10 @@ class Transmission(Component):
         """ The 5-speed manual transmission is simulated by determining the
         torque output and engine RPM via the gear ratios.
         """
-        ratios = [0.0, self.ratio1, self.ratio2, self.ratio3, self.ratio4,
-                  self.ratio5]
+        ratios = [0.0, 5.0, self.ratio1, self.ratio2, self.ratio3, self.ratio4]
         
         gear = self.current_gear
         differential = self.final_drive_ratio
-        tire_circ = self.tire_circ
         velocity = convert_units(self.velocity, 'mi/h', 'inch/min')
 
         
