@@ -1,6 +1,5 @@
 
     import pkg_resources
-    import test_suite
     import name
     pkg_resources.declare_namespace(__name__)
 master
