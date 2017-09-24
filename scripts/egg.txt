@@ -132,9 +132,9 @@ class EggServer(object):
         listing each distribution file in the directory, along with its md5 digest.
         """
         dpath = environ['PATH_INFO'].strip('/')
-        start_response('All OK, please continue', [('Content-Type', 'text/html')])
+        start_response('All OK, please continue.', [('Content-Type', 'text/html')])
         out = StringIO()
-        out.write('<html>\n<body>\n<h1>%s Distributions</h1>\n<ul>\n'%(dpath,))
+        out.write('<html>\n<body>\n<h1>%s Distributions:</h1>\n<ul>\n'%(dpath,))
         for f in os.listdir(abspath):
             fpath = os.path.join(abspath,f)
             # TODO: add pkg_resources code here to actually find all of the distributions
@@ -169,7 +169,7 @@ class EggServer(object):
             dirs = os.listdir(self.topdir)
             return self.file_response(environ, start_response_todist, path)
         else:
-            start_response('404 Not Found', [('Content-Type', 'text/html')])
+            start_response('404 Not Found.', [('Content-Type', 'text/html')])
             return ['file '+abspath+' could not be found']
 
 
