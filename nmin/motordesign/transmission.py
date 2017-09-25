@@ -54,7 +54,7 @@ class Transmission(Component):
                      desc='Expected Velocity of Vehicle')
     RPM = Float(1000., iotype='out', units='rpm',
                      desc='Engine RPM')        
-    torque_ratio = Float(0., iotype='out',
+    torque_ratio = Float(1., iotype='out',
                          desc='Ratio of output torque to engine torque')        
 
         
