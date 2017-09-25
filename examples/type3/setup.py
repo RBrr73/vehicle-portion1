@@ -69,7 +69,7 @@ kwds = { 'name':'oottadao.examples.bar3simulation',
          #'package_dir':{'': 'oottadao/examples/bar3simulation'},
          'packages':find_packages(), #['oottadao','oottadao.examples'],
          'package_data': {'oottadao.examples.bar3simulation': ['*.csv']},
-         'include_package_data': False,
+         'include_package_data': True,
          'test_suite':'nose.collector',
          'zip_safe': False,
          'install_requires':[
