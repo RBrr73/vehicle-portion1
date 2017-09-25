@@ -23,6 +23,7 @@ class Analysis(Assembly):
         self.driver.add_parameter('paraboloid.x', low=-75, high=75)
         self.driver.add_parameter('paraboloid.y', low=-75, high=75)
         #tell the DOEdriver to also record any other variables you want to know for each case
+        #more gears
         self.driver.gear()
         self.driver.add_response('paraboloid.f_xy')
         self.driver.add_response('paraboloid.xy')
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     analysis = Analysis()
 
     tt = time.time()
-    gear = ['1','2']
+    gear = ['1','2','3','4']
     analysis.run()
 
     
