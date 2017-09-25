@@ -2,7 +2,7 @@ import time
 
 from oottadao.main.api import Assembly, Component
 from oottadao.lib.drivers.api import DOEdriver
-from oottadao.lib.doegenerators.api import FullFactorial, Uniform
+from oottadao.lib.doegenerators.api import FullFactorial, Uniform, DOE component
 from oottadao.examples.simple.paraboloid import Paraboloid
 
 from oottadao.lib.casehandlers.api import JSONCaseRecorder, BSONCaseRecorder
