@@ -133,7 +133,7 @@ if __name__ == "__main__":
     plt.plot(check, actual, 'k', label='True f')        
     plt.plot(sim_cok.hifi_cases.x, sim_cok.hifi_cases.f_x,'ok',label="High Fi")
     plt.plot(sim_cok.lofi_cases.x, sim_cok.lofi_cases.f_x,'or',label="Low Fi")
-    plt.plot(check, predicted_cok, 'g', label='Co-kriging')
+    plt.plot(check, predicted_cok, '2g', label='Co-kriging')
     plt.plot(check, predicted_cok + 2*sigma_cok, 'g', alpha=0.5, label='I95%')
     plt.plot(check, predicted_cok - 2*sigma_cok, 'g', alpha=0.5)
     plt.fill_between(check, predicted_cok + 2*sigma_cok,
