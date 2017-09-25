@@ -46,7 +46,6 @@ setup(name='oottadao.util',
       xyplot=oottadao.util.casedb:cmdlineXYplot
       plotgraph=oottadao.util.graphplot:main
       dotgraph=oottadao.util.dotgraph:main
-      bargraph=oottadao.util.bargraph:main
       plotgraph=oottadao.util.plotgraph:main
       add_reqs=oottadao.util.addreqs:main
       mkpseudo=oottadao.util.mkpseudo:mkpseudo
