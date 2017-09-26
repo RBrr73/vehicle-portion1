@@ -3,7 +3,7 @@ import numpy as np
 
 import oottadao.examples
 import oottadao.lib.geometry.stl as stl
-from oottadao.lib.geometry.ffd_axisymetric import Body, Shell
+from oottadao.lib.geometry.ffd_axisymetric import Body, Shell, Base
 from oottadao.lib.geometry.stl_group import STLGroup
 
 
