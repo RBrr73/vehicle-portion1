@@ -428,6 +428,7 @@ if __name__ == "__main__": # pragma: no cover
                               low=0, high=5)
     top.sim_EPA_city.add_objective('vehicle.acceleration', name='acceleration')
     top.sim_EPA_city.add_objective('vehicle.fuel_burn', name='fuel_burn')
+    top.sim_EPA_city.add_objective('vehicle.efficiency', name='efficiency')
     top.sim_EPA_city.add_objective('vehicle.overspeed', name='overspeed')
     top.sim_EPA_city.add_objective('vehicle.underspeed', name='underspeed')
     top.sim_EPA_city.profilename = 'EPA-city.csv'
