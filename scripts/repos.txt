@@ -8,6 +8,7 @@ but requires some discipline :-(
 
 import glob
 import optparse
+import parse
 import os.path
 import platform
 import shutil
@@ -54,6 +55,7 @@ def main():
             repository = arguments[0]
         else:
             parser.print_help()
+            parser.print_report
             sys.exit(1)
     if not repository:
         try:
