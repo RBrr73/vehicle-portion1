@@ -188,7 +188,6 @@ if __name__ == "__main__": # pragma: no cover
     print 'Power: ', MyEngine.power
     print 'Torque: ', MyEngine.torque
     print 'Fuel Burn: ', MyEngine.fuel_burn
-    print 'Engine Weight: ', MyEngine.engine_weight
     print '-----------------------------'    
     print "Elapsed time: ", time.time()-start_time, 'seconds'
     
